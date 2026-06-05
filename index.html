@@ -21,24 +21,38 @@
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Ramos Solutions — Inicio">
         <div class="logo-icon-wrap" aria-hidden="true">
-          <svg class="logo-svg" width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="logo-svg" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="lg-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <linearGradient id="lg-grad" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#6366f1"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#22d3ee"/>
               </linearGradient>
               <filter id="lg-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                <feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <path class="logo-frame" d="M24 2 L42 13 L42 35 L24 46 L6 35 L6 13 Z" stroke="url(#lg-grad)" stroke-width="0.8" fill="none" opacity="0.5"/>
-            <rect class="logo-bar" x="14" y="22" width="3" height="14" rx="1.5" fill="url(#lg-grad)" opacity="0.9"/>
-            <rect class="logo-bar" x="22.5" y="12" width="3" height="24" rx="1.5" fill="#fff" opacity="0.95"/>
-            <rect class="logo-bar" x="31" y="18" width="3" height="18" rx="1.5" fill="url(#lg-grad)" opacity="0.9"/>
-            <path class="logo-curve" d="M15.5 30 C15.5 30 20 20 24 20 C28 20 32.5 26 32.5 26" stroke="url(#lg-grad)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-            <circle class="logo-node" cx="24" cy="20" r="2.5" fill="#22d3ee"/>
+            <!-- Shell: rounded square with cut corners -->
+            <path class="logo-shell"
+              d="M12 2 L44 2 Q52 2 54 10 L54 46 Q52 54 44 54 L12 54 Q4 54 2 46 L2 10 Q4 2 12 2 Z"
+              stroke="url(#lg-grad)" stroke-width="1.2" fill="none" opacity="0.45"/>
+            <!-- Circuit traces -->
+            <path class="logo-trace" d="M2 14 L8 14 L10 10" stroke="url(#lg-grad)" stroke-width="0.8" fill="none" opacity="0.35"/>
+            <path class="logo-trace" d="M54 42 L48 42 L46 46" stroke="url(#lg-grad)" stroke-width="0.8" fill="none" opacity="0.35"/>
+            <!-- Letter R -->
+            <path class="logo-r"
+              d="M15 16 L15 40 M15 16 L25 16 Q30 16 30 22 Q30 28 25 28 L15 28 M22 28 L30 40"
+              stroke="url(#lg-grad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Letter S -->
+            <path class="logo-s"
+              d="M38 18 Q46 18 46 24 Q46 30 38 30 Q30 30 30 36 Q30 42 38 42 Q42 42 44 40"
+              stroke="#f8fafc" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+            <!-- Node -->
+            <circle class="logo-node" cx="46" cy="46" r="3" fill="#22d3ee"/>
           </svg>
         </div>
-        <span class="logo-text"><span class="logo-word">Ramos</span><span class="logo-word logo-word--accent">Solutions</span></span>
+        <span class="logo-text" aria-hidden="true">
+          <span class="logo-word"><span class="logo-letter">R</span><span class="logo-letter">a</span><span class="logo-letter">m</span><span class="logo-letter">o</span><span class="logo-letter">s</span></span>
+          <span class="logo-word logo-word--accent"><span class="logo-letter">S</span><span class="logo-letter">o</span><span class="logo-letter">l</span><span class="logo-letter">u</span><span class="logo-letter">t</span><span class="logo-letter">i</span><span class="logo-letter">o</span><span class="logo-letter">n</span><span class="logo-letter">s</span></span>
+        </span>
       </a>
 
       <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
