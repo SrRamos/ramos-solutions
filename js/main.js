@@ -519,105 +519,6 @@
   }
 
   /* ========================================
-     Dashboard mockup tilt
-     ======================================== */
-  function initDashboardTilt() {
-    if (isMobile.matches || reducedMotion.matches) return;
-
-    const stage = document.querySelector('.dashboard-stage');
-    const mockup = document.querySelector('.dashboard-mockup');
-    if (!stage || !mockup) return;
-
-    let frame = 0, nextX = 0, nextY = 0;
-
-    stage.addEventListener('pointermove', (e) => {
-      const rect = stage.getBoundingClientRect();
-      nextX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      nextY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-      if (!frame) frame = requestAnimationFrame(apply);
-    });
-
-    stage.addEventListener('pointerleave', () => { mockup.style.transform = ''; });
-
-    function apply() {
-      frame = 0;
-      const rotateX = 5 - nextY * 3;
-      const rotateY = -8 + nextX * 6;
-      mockup.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    }
-  }
-
-  /* ========================================
-     FAQ accordion with smooth animation
-     ======================================== */
-  function initFaq() {
-    const cards = document.querySelectorAll('.faq-card');
-    if (!cards.length || reducedMotion.matches || !Element.prototype.animate) return;
-
-    const duration = 300;
-    const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
-
-    cards.forEach(details => {
-      const summary = details.querySelector('.faq-card__summary');
-      const body = details.querySelector('.faq-card__body');
-      if (!summary || !body) return;
-
-      body.style.height = '0px';
-      body.style.overflow = 'hidden';
-      body.style.opacity = '0';
-
-      summary.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = details.open;
-
-        if (isOpen) {
-          const startHeight = body.scrollHeight;
-          body.animate([
-            { height: startHeight + 'px', opacity: 1 },
-            { height: '0px', opacity: 0 }
-          ], { duration, easing }).onfinish = () => {
-            details.open = false;
-            body.style.height = '0px';
-            body.style.opacity = '0';
-          };
-        } else {
-          details.open = true;
-          const targetHeight = body.scrollHeight;
-          body.animate([
-            { height: '0px', opacity: 0 },
-            { height: targetHeight + 'px', opacity: 1 }
-          ], { duration, easing }).onfinish = () => {
-            body.style.height = 'auto';
-            body.style.opacity = '1';
-          };
-        }
-      });
-    });
-  }
-
-  /* ========================================
-     Chatbot widget
-     ======================================== */
-  function initChatbot() {
-    const chatbot = document.getElementById('chatbot-widget');
-    const chatbotToggle = chatbot?.querySelector('.chatbot-toggle');
-
-    chatbotToggle?.addEventListener('click', () => {
-      const isOpen = chatbot.classList.toggle('open');
-      chatbotToggle.setAttribute('aria-expanded', String(isOpen));
-      chatbot.setAttribute('aria-hidden', String(!isOpen));
-    });
-
-    document.addEventListener('click', (e) => {
-      if (chatbot?.classList.contains('open') && !chatbot.contains(e.target)) {
-        chatbot.classList.remove('open');
-        chatbotToggle?.setAttribute('aria-expanded', 'false');
-        chatbot.setAttribute('aria-hidden', 'true');
-      }
-    });
-  }
-
-  /* ========================================
      Footer year + Form
      ======================================== */
   function initYear() {
@@ -651,11 +552,8 @@
     initHeader();
     initMenu();
     initReveals();
-    initCounters();
     initMagneticButtons();
     initTiltCards();
-    initDashboardTilt();
-    initChatbot();
     initYear();
     initForm();
   }
