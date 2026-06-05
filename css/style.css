@@ -309,6 +309,22 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   animation: hero-canvas-in 1.2s var(--ease-soft) 0.3s forwards;
 }
 
+@media (max-width: 767.98px) {
+  .hero__canvas {
+    display: none;
+    animation: none;
+  }
+  .hero__grid {
+    display: none;
+  }
+  .hero {
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(99,102,241,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(168,85,247,0.1) 0%, transparent 50%),
+      var(--bg-primary);
+  }
+}
+
 @keyframes hero-canvas-in {
   0% { opacity: 0; filter: saturate(0.75); }
   100% { opacity: 0.82; filter: saturate(1); }
@@ -515,6 +531,9 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
    Sections
    ======================================== */
 .section { padding-block: 5rem; }
+@media (max-width: 767.98px) {
+  .section { padding-block: 4rem; }
+}
 @media (min-width: 768px) { .section { padding-block: 7rem; } }
 
 .section-header {
@@ -569,6 +588,9 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   transform-style: preserve-3d;
   will-change: transform;
+}
+@media (max-width: 479.98px) {
+  .card { padding: 1.25rem; }
 }
 .card:hover {
   border-color: rgba(99,102,241,0.2);
@@ -950,6 +972,9 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .contacto-form {
   padding: 2rem;
 }
+@media (max-width: 479.98px) {
+  .contacto-form { padding: 1.25rem; }
+}
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -1009,8 +1034,13 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   inset: 0;
   z-index: 2;
   pointer-events: none;
+  touch-action: none;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .trail-canvas { display: none; }
 }
 
 /* ========================================
@@ -1025,6 +1055,20 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   flex-direction: column;
   align-items: flex-end;
   gap: 0.75rem;
+}
+@media (max-width: 479.98px) {
+  .chatbot-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .chatbot-toggle {
+    width: 3rem;
+    height: 3rem;
+  }
+  .chatbot-panel {
+    width: calc(100vw - 2rem);
+    max-width: 18rem;
+  }
 }
 .chatbot-toggle {
   width: 3.5rem;
