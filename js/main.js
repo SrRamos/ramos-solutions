@@ -543,6 +543,55 @@
   }
 
   /* ========================================
+     Modals
+     ======================================== */
+  function initModals() {
+    const overlay = document.getElementById('modal-overlay');
+    const cards = document.querySelectorAll('[data-modal]');
+    const closeButtons = document.querySelectorAll('.modal__close');
+    if (!overlay || !cards.length) return;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      overlay.classList.add('active');
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      // Focus first focusable element in modal
+      const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      focusable?.focus();
+    }
+
+    function closeAll() {
+      document.querySelectorAll('.modal.active').forEach(m => {
+        m.classList.remove('active');
+        m.setAttribute('aria-hidden', 'true');
+      });
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        const modalId = card.dataset.modal;
+        if (modalId) openModal(modalId);
+      });
+    });
+
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', closeAll);
+    });
+
+    overlay.addEventListener('click', closeAll);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAll();
+    });
+  }
+
+  /* ========================================
      Initialize all
      ======================================== */
   function init() {
@@ -554,6 +603,7 @@
     initReveals();
     initMagneticButtons();
     initTiltCards();
+    initModals();
     initYear();
     initForm();
   }
