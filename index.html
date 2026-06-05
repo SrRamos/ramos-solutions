@@ -21,37 +21,26 @@
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Ramos Solutions — Inicio">
         <div class="logo-icon-wrap" aria-hidden="true">
-          <svg class="logo-svg" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="logo-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="lg-grad" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+              <linearGradient id="lg-grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#6366f1"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#22d3ee"/>
               </linearGradient>
               <filter id="lg-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                <feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <!-- Shell: rounded square with cut corners -->
-            <path class="logo-shell"
-              d="M12 2 L44 2 Q52 2 54 10 L54 46 Q52 54 44 54 L12 54 Q4 54 2 46 L2 10 Q4 2 12 2 Z"
-              stroke="url(#lg-grad)" stroke-width="1.2" fill="none" opacity="0.45"/>
-            <!-- Circuit traces -->
-            <path class="logo-trace" d="M2 14 L8 14 L10 10" stroke="url(#lg-grad)" stroke-width="0.8" fill="none" opacity="0.35"/>
-            <path class="logo-trace" d="M54 42 L48 42 L46 46" stroke="url(#lg-grad)" stroke-width="0.8" fill="none" opacity="0.35"/>
-            <!-- Letter R -->
-            <path class="logo-r"
-              d="M15 16 L15 40 M15 16 L25 16 Q30 16 30 22 Q30 28 25 28 L15 28 M22 28 L30 40"
-              stroke="url(#lg-grad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <!-- Letter S -->
-            <path class="logo-s"
-              d="M38 18 Q46 18 46 24 Q46 30 38 30 Q30 30 30 36 Q30 42 38 42 Q42 42 44 40"
-              stroke="#f8fafc" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-            <!-- Node -->
-            <circle class="logo-node" cx="46" cy="46" r="3" fill="#22d3ee"/>
+            <!-- Outer diamond -->
+            <path class="logo-outer" d="M22 2 L42 22 L22 42 L2 22 Z" stroke="url(#lg-grad)" stroke-width="1" fill="none" opacity="0.35"/>
+            <!-- Inner diamond -->
+            <path class="logo-inner" d="M22 10 L34 22 L22 34 L10 22 Z" stroke="url(#lg-grad)" stroke-width="0.9" fill="none" opacity="0.55"/>
+            <!-- Center point -->
+            <circle class="logo-center" cx="22" cy="22" r="2.5" fill="#22d3ee"/>
           </svg>
         </div>
         <span class="logo-text" aria-hidden="true">
-          <span class="logo-word"><span class="logo-letter">R</span><span class="logo-letter">a</span><span class="logo-letter">m</span><span class="logo-letter">o</span><span class="logo-letter">s</span></span>
-          <span class="logo-word logo-word--accent"><span class="logo-letter">S</span><span class="logo-letter">o</span><span class="logo-letter">l</span><span class="logo-letter">u</span><span class="logo-letter">t</span><span class="logo-letter">i</span><span class="logo-letter">o</span><span class="logo-letter">n</span><span class="logo-letter">s</span></span>
+          <span class="logo-word">Ramos</span>
+          <span class="logo-word logo-word--accent">Solutions</span>
         </span>
       </a>
 
@@ -136,85 +125,89 @@
           <h2 id="diagram-title" class="section-title reveal">Tu operación hoy vs. cómo podría ser</h2>
         </header>
 
-        <div class="diagram-wrapper reveal">
-          <svg class="diagram-svg" viewBox="0 0 1100 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <defs>
-              <linearGradient id="d-before" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ef4444" stop-opacity="0.6"/><stop offset="100%" stop-color="#f97316" stop-opacity="0.4"/></linearGradient>
-              <linearGradient id="d-after" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity="0.9"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.8"/></linearGradient>
-              <filter id="d-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
+        <div class="diagram-pair reveal">
+          <!-- BEFORE -->
+          <div class="diagram-half diagram-half--before">
+            <svg class="diagram-svg" viewBox="0 0 520 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <defs>
+                <linearGradient id="d-before" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ef4444" stop-opacity="0.6"/><stop offset="100%" stop-color="#f97316" stop-opacity="0.4"/></linearGradient>
+              </defs>
+              <rect x="10" y="10" width="500" height="380" rx="20" fill="none" stroke="rgba(239,68,68,0.08)" stroke-width="1" stroke-dasharray="8 4"/>
+              <text x="260" y="42" text-anchor="middle" fill="#ef4444" font-size="16" font-weight="700" font-family="Inter,sans-serif">HOY: 8 herramientas, 0 conexiones</text>
 
-            <!-- BEFORE zone -->
-            <rect x="30" y="10" width="460" height="380" rx="20" fill="none" stroke="rgba(239,68,68,0.08)" stroke-width="1" stroke-dasharray="8 4"/>
-            <text x="260" y="42" text-anchor="middle" fill="#ef4444" font-size="16" font-weight="700" font-family="Inter,sans-serif">HOY: 8 herramientas, 0 conexiones</text>
+              <rect x="35" y="65" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="80" y="97" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Excel</text>
+              <rect x="150" y="85" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="195" y="117" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">WhatsApp</text>
+              <rect x="55" y="160" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="100" y="192" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Email</text>
+              <rect x="190" y="150" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="235" y="182" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Notion</text>
+              <rect x="120" y="235" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="165" y="267" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Drive</text>
+              <rect x="260" y="220" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="305" y="252" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Slack</text>
+              <rect x="40" y="295" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="85" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">CRM A</text>
+              <rect x="280" y="295" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <text x="325" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">CRM B</text>
 
-            <!-- Tool boxes -->
-            <rect x="55" y="65" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="100" y="97" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Excel</text>
-            <rect x="170" y="85" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="215" y="117" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">WhatsApp</text>
-            <rect x="75" y="160" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="120" y="192" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Email</text>
-            <rect x="210" y="150" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="255" y="182" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Notion</text>
-            <rect x="140" y="235" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="185" y="267" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Drive</text>
-            <rect x="280" y="220" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="325" y="252" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Slack</text>
-            <rect x="60" y="295" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="105" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">CRM A</text>
-            <rect x="300" y="295" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="345" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">CRM B</text>
+              <path d="M125 92 L150 112 M240 140 L260 220 M145 215 L190 205 M100 192 L55 160 M210 275 L260 295" stroke="#ef4444" stroke-width="0.8" opacity="0.18" stroke-dasharray="4 3"/>
+              <path d="M80 350 L120 290 M325 295 L370 270 M210 192 L190 150" stroke="#ef4444" stroke-width="0.8" opacity="0.12" stroke-dasharray="4 3"/>
 
-            <!-- Chaos lines -->
-            <path d="M145 92 L170 112 M260 140 L280 220 M165 215 L210 205 M120 192 L75 160 M230 275 L280 295" stroke="#ef4444" stroke-width="0.8" opacity="0.18" stroke-dasharray="4 3"/>
-            <path d="M100 350 L140 290 M345 295 L390 270 M230 192 L210 150" stroke="#ef4444" stroke-width="0.8" opacity="0.12" stroke-dasharray="4 3"/>
+              <circle cx="90" cy="78" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="230" cy="178" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+              <circle cx="170" cy="278" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+              <text x="260" y="390" text-anchor="middle" fill="#475569" font-size="12" font-family="Inter,sans-serif">Datos dispersos · Decisiones a ciegas · Equipo agotado</text>
+            </svg>
+          </div>
 
-            <!-- Alerts -->
-            <circle cx="110" cy="78" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
-            <circle cx="250" cy="178" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
-            <circle cx="190" cy="278" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-            <text x="260" y="390" text-anchor="middle" fill="#475569" font-size="12" font-family="Inter,sans-serif">Datos dispersos · Decisiones a ciegas · Equipo agotado</text>
+          <!-- ARROW (desktop only) -->
+          <div class="diagram-arrow" aria-hidden="true">
+            <svg width="60" height="60" viewBox="0 0 60 60">
+              <path d="M10 30 L45 30" stroke="url(#d-after)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+              <polygon points="38,24 50,30 38,36" fill="#22d3ee" opacity="0.6"/>
+            </svg>
+          </div>
 
-            <!-- Arrow -->
-            <path d="M520 210 L580 210" stroke="url(#d-after)" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
-            <polygon points="575,204 590,210 575,216" fill="#22d3ee" opacity="0.8"/>
+          <!-- AFTER -->
+          <div class="diagram-half diagram-half--after">
+            <svg class="diagram-svg" viewBox="0 0 520 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <defs>
+                <linearGradient id="d-after" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity="0.9"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.8"/></linearGradient>
+                <filter id="d-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <rect x="10" y="10" width="500" height="380" rx="20" fill="none" stroke="rgba(99,102,241,0.12)" stroke-width="1"/>
+              <text x="260" y="42" text-anchor="middle" fill="#6366f1" font-size="16" font-weight="700" font-family="Inter,sans-serif">MAÑANA: Todo conectado, todo visible</text>
 
-            <!-- AFTER zone -->
-            <rect x="610" y="10" width="460" height="380" rx="20" fill="none" stroke="rgba(99,102,241,0.12)" stroke-width="1"/>
-            <text x="840" y="42" text-anchor="middle" fill="#6366f1" font-size="16" font-weight="700" font-family="Inter,sans-serif">MAÑANA: Todo conectado, todo visible</text>
+              <circle cx="260" cy="200" r="55" fill="none" stroke="url(#d-after)" stroke-width="2.5" filter="url(#d-glow)"/>
+              <circle cx="260" cy="200" r="16" fill="#22d3ee" filter="url(#d-glow)">
+                <animate attributeName="r" values="16;18;16" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              <text x="260" y="275" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600" font-family="Inter,sans-serif">Ramos Hub</text>
 
-            <!-- Central hub -->
-            <circle cx="840" cy="200" r="55" fill="none" stroke="url(#d-after)" stroke-width="2.5" filter="url(#d-glow)"/>
-            <circle cx="840" cy="200" r="16" fill="#22d3ee" filter="url(#d-glow)">
-              <animate attributeName="r" values="16;18;16" dur="3s" repeatCount="indefinite"/>
-            </circle>
-            <text x="840" y="275" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600" font-family="Inter,sans-serif">Ramos Hub</text>
+              <circle cx="260" cy="85" r="10" fill="#6366f1" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>
+              <text x="260" y="70" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">Ventas</text>
+              <circle cx="380" cy="200" r="10" fill="#a855f7" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite"/></circle>
+              <text x="395" y="203" text-anchor="start" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">IA</text>
+              <circle cx="260" cy="315" r="10" fill="#22d3ee" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/></circle>
+              <text x="260" y="338" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">BI</text>
+              <circle cx="140" cy="200" r="10" fill="#6366f1" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></circle>
+              <text x="125" y="203" text-anchor="end" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">Cloud</text>
 
-            <!-- Peripheral nodes -->
-            <circle cx="840" cy="85" r="10" fill="#6366f1" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>
-            <text x="840" y="70" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">Ventas</text>
-            <circle cx="960" cy="200" r="10" fill="#a855f7" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite"/></circle>
-            <text x="975" y="203" text-anchor="start" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">IA</text>
-            <circle cx="840" cy="315" r="10" fill="#22d3ee" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/></circle>
-            <text x="840" y="338" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">BI</text>
-            <circle cx="720" cy="200" r="10" fill="#6366f1" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></circle>
-            <text x="705" y="203" text-anchor="end" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">Cloud</text>
+              <line x1="260" y1="145" x2="260" y2="95" stroke="url(#d-after)" stroke-width="1.5"/>
+              <line x1="315" y1="200" x2="370" y2="200" stroke="url(#d-after)" stroke-width="1.5"/>
+              <line x1="260" y1="255" x2="260" y2="305" stroke="url(#d-after)" stroke-width="1.5"/>
+              <line x1="205" y1="200" x2="150" y2="200" stroke="url(#d-after)" stroke-width="1.5"/>
 
-            <!-- Connections -->
-            <line x1="840" y1="145" x2="840" y2="95" stroke="url(#d-after)" stroke-width="1.5"/>
-            <line x1="895" y1="200" x2="950" y2="200" stroke="url(#d-after)" stroke-width="1.5"/>
-            <line x1="840" y1="255" x2="840" y2="305" stroke="url(#d-after)" stroke-width="1.5"/>
-            <line x1="785" y1="200" x2="730" y2="200" stroke="url(#d-after)" stroke-width="1.5"/>
+              <circle cx="0" cy="0" r="3.5" fill="#22d3ee"><animateMotion path="M260 145 L260 95" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+              <circle cx="0" cy="0" r="3.5" fill="#a855f7"><animateMotion path="M315 200 L370 200" dur="2.2s" repeatCount="indefinite" begin="0.4s"/><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.4s"/></circle>
+              <circle cx="0" cy="0" r="3.5" fill="#6366f1"><animateMotion path="M260 255 L260 305" dur="2s" repeatCount="indefinite" begin="0.8s"/><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.8s"/></circle>
+              <circle cx="0" cy="0" r="3.5" fill="#22d3ee"><animateMotion path="M205 200 L150 200" dur="1.6s" repeatCount="indefinite" begin="1.2s"/><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite" begin="1.2s"/></circle>
 
-            <!-- Particles -->
-            <circle cx="0" cy="0" r="3.5" fill="#22d3ee"><animateMotion path="M840 145 L840 95" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
-            <circle cx="0" cy="0" r="3.5" fill="#a855f7"><animateMotion path="M895 200 L950 200" dur="2.2s" repeatCount="indefinite" begin="0.4s"/><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.4s"/></circle>
-            <circle cx="0" cy="0" r="3.5" fill="#6366f1"><animateMotion path="M840 255 L840 305" dur="2s" repeatCount="indefinite" begin="0.8s"/><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.8s"/></circle>
-            <circle cx="0" cy="0" r="3.5" fill="#22d3ee"><animateMotion path="M785 200 L730 200" dur="1.6s" repeatCount="indefinite" begin="1.2s"/><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite" begin="1.2s"/></circle>
-
-            <text x="840" y="390" text-anchor="middle" fill="#475569" font-size="12" font-family="Inter,sans-serif">Datos unificados · IA anticipando · Decisiones en tiempo real</text>
-          </svg>
+              <text x="260" y="390" text-anchor="middle" fill="#475569" font-size="12" font-family="Inter,sans-serif">Datos unificados · IA anticipando · Decisiones en tiempo real</text>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
