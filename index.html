@@ -8,12 +8,17 @@
   <title>Ramos Solution SAS — Software & IA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
   <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar"></div>
+  </div>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
@@ -39,7 +44,8 @@
         <ul class="nav-list">
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto" class="nav-cta magnetic">Contactar</a></li>
         </ul>
       </nav>
     </div>
@@ -47,44 +53,43 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-      </div>
+      <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero-content">
-        <div class="hero-badge" data-animate="fade-up">
+        <div class="hero-badge reveal" data-delay="0">
           <span class="badge-dot" aria-hidden="true"></span>
           <span>Soluciones tecnológicas a medida</span>
         </div>
-        <h1 id="hero-title" class="hero-title" data-animate="fade-up" data-delay="1">
+        <h1 id="hero-title" class="hero-title reveal" data-delay="1">
           Transformamos ideas en<br>
-          <span class="gradient-text">software inteligente</span>
+          <span class="gradient-text sweep">software inteligente</span>
         </h1>
-        <p class="hero-lead" data-animate="fade-up" data-delay="2">
+        <p class="hero-lead reveal" data-delay="2">
           Desarrollo de aplicaciones web, móviles e inteligencia artificial.
           Diseñamos tecnología que impulsa tu negocio con propósito.
         </p>
-        <div class="hero-actions" data-animate="fade-up" data-delay="3">
-          <a href="#contacto" class="btn btn-primary">Iniciar un proyecto</a>
-          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+        <div class="hero-actions reveal" data-delay="3">
+          <a href="#contacto" class="btn btn-primary magnetic sheen">Iniciar un proyecto</a>
+          <a href="#servicios" class="btn btn-ghost magnetic">Ver servicios</a>
         </div>
       </div>
       <div class="scroll-indicator" aria-hidden="true">
-        <span></span>
+        <div class="scroll-indicator__track">
+          <div class="scroll-indicator__dot"></div>
+        </div>
       </div>
     </section>
 
     <section class="servicios section" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
-        <header class="section-header" data-animate="fade-up">
-          <span class="section-tag">Nuestros servicios</span>
-          <h2 id="servicios-title" class="section-title">Tecnología que escala contigo</h2>
-          <p class="section-desc">Desde el primer MVP hasta plataformas enterprise, construimos con calidad y visión de futuro.</p>
+        <header class="section-header">
+          <span class="section-tag reveal">Nuestros servicios</span>
+          <h2 id="servicios-title" class="section-title reveal">Tecnología que escala contigo</h2>
+          <p class="section-desc reveal">Desde el primer MVP hasta plataformas enterprise, construimos con calidad y visión de futuro.</p>
         </header>
 
         <div class="cards-grid">
-          <article class="card" data-animate="fade-up">
+          <article class="card tilt-card reveal" data-delay="0">
             <div class="card-icon" aria-hidden="true">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="2" y="3" width="20" height="14" rx="2"/>
@@ -96,7 +101,7 @@
             <p class="card-text">Aplicaciones modernas, rápidas y escalables con React, Next.js y arquitecturas cloud-native.</p>
           </article>
 
-          <article class="card" data-animate="fade-up" data-delay="1">
+          <article class="card tilt-card reveal" data-delay="1">
             <div class="card-icon" aria-hidden="true">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <rect x="5" y="2" width="14" height="20" rx="2"/>
@@ -107,7 +112,7 @@
             <p class="card-text">Experiencias nativas y multiplataforma que tus usuarios amarán, desde la primera interacción.</p>
           </article>
 
-          <article class="card" data-animate="fade-up" data-delay="2">
+          <article class="card tilt-card reveal" data-delay="2">
             <div class="card-icon" aria-hidden="true">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 2a4 4 0 0 1 4 4c0 2.5-2 4-4 6-2-2-4-3.5-4-6a4 4 0 0 1 4-4z"/>
@@ -119,7 +124,7 @@
             <p class="card-text">Agentes autónomos, LLMs, automatización inteligente y análisis de datos para decisiones mejoradas.</p>
           </article>
 
-          <article class="card" data-animate="fade-up" data-delay="3">
+          <article class="card tilt-card reveal" data-delay="3">
             <div class="card-icon" aria-hidden="true">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
@@ -129,7 +134,7 @@
             <p class="card-text">Infraestructura robusta, CI/CD, contenedores y orquestación para despliegues sin fricción.</p>
           </article>
 
-          <article class="card" data-animate="fade-up" data-delay="4">
+          <article class="card tilt-card reveal" data-delay="4">
             <div class="card-icon" aria-hidden="true">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="12" cy="12" r="10"/>
@@ -140,7 +145,7 @@
             <p class="card-text">Te guiamos en arquitectura, stack tecnológico y estrategia digital para maximizar ROI.</p>
           </article>
 
-          <article class="card" data-animate="fade-up" data-delay="5">
+          <article class="card tilt-card reveal" data-delay="5">
             <div class="card-icon" aria-hidden="true">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -155,19 +160,19 @@
 
     <section class="stats" aria-label="Estadísticas">
       <div class="container stats-grid">
-        <div class="stat" data-animate="count">
+        <div class="stat reveal" data-delay="0">
           <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
           <span class="stat-label">Proyectos entregados</span>
         </div>
-        <div class="stat" data-animate="count">
+        <div class="stat reveal" data-delay="1">
           <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
           <span class="stat-label">Clientes satisfechos</span>
         </div>
-        <div class="stat" data-animate="count">
+        <div class="stat reveal" data-delay="2">
           <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
           <span class="stat-label">Años de experiencia</span>
         </div>
-        <div class="stat" data-animate="count">
+        <div class="stat reveal" data-delay="3">
           <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
           <span class="stat-label">Soporte dedicado</span>
         </div>
@@ -176,9 +181,9 @@
 
     <section class="nosotros section" id="nosotros" aria-labelledby="nosotros-title">
       <div class="container nosotros-grid">
-        <div class="nosotros-visual" data-animate="fade-right" aria-hidden="true">
-          <div class="glass-panel">
-            <div class="code-window">
+        <div class="nosotros-visual reveal" aria-hidden="true">
+          <div class="glass-panel dashboard-stage">
+            <div class="code-window dashboard-mockup">
               <div class="code-header">
                 <span class="code-dot red"></span>
                 <span class="code-dot yellow"></span>
@@ -197,20 +202,20 @@
           </div>
         </div>
         <div class="nosotros-content">
-          <span class="section-tag" data-animate="fade-up">Quiénes somos</span>
-          <h2 id="nosotros-title" class="section-title" data-animate="fade-up">Innovación con propósito</h2>
-          <p data-animate="fade-up">En <strong>Ramos Solution SAS</strong> creemos que la tecnología debe ser un habilitador, no un obstáculo. Combinamos ingeniería de software sólida con inteligencia artificial para resolver problemas reales.</p>
-          <p data-animate="fade-up">Trabajamos en modo <em>lean</em>: iteraciones rápidas, feedback constante y resultados medibles desde la primera semana.</p>
+          <span class="section-tag reveal">Quiénes somos</span>
+          <h2 id="nosotros-title" class="section-title reveal">Innovación con propósito</h2>
+          <p class="reveal">En <strong>Ramos Solution SAS</strong> creemos que la tecnología debe ser un habilitador, no un obstáculo. Combinamos ingeniería de software sólida con inteligencia artificial para resolver problemas reales.</p>
+          <p class="reveal">Trabajamos en modo <em>lean</em>: iteraciones rápidas, feedback constante y resultados medibles desde la primera semana.</p>
           <ul class="values-list">
-            <li data-animate="fade-up">
+            <li class="reveal">
               <span class="value-icon" aria-hidden="true">◆</span>
               <span><strong>Excelencia técnica</strong> — Código limpio, arquitecturas escalables.</span>
             </li>
-            <li data-animate="fade-up">
+            <li class="reveal">
               <span class="value-icon" aria-hidden="true">◆</span>
               <span><strong>Enfoque en el usuario</strong> — UX/a11y primero, siempre.</span>
             </li>
-            <li data-animate="fade-up">
+            <li class="reveal">
               <span class="value-icon" aria-hidden="true">◆</span>
               <span><strong>Transparencia total</strong> — Comunicación clara, sin sorpresas.</span>
             </li>
@@ -221,35 +226,82 @@
 
     <section class="cta-section" aria-labelledby="cta-title">
       <div class="container cta-inner">
-        <h2 id="cta-title" class="cta-title" data-animate="fade-up">¿Listo para llevar tu idea al siguiente nivel?</h2>
-        <p class="cta-desc" data-animate="fade-up">Cuéntanos tu proyecto. En 24 horas tendrás un diagnóstico y propuesta inicial sin costo.</p>
-        <a href="#contacto" class="btn btn-primary btn-lg" data-animate="fade-up">Hablemos</a>
+        <h2 id="cta-title" class="cta-title reveal">¿Listo para llevar tu idea al siguiente nivel?</h2>
+        <p class="cta-desc reveal">Cuéntanos tu proyecto. En 24 horas tendrás un diagnóstico y propuesta inicial sin costo.</p>
+        <a href="#contacto" class="btn btn-primary btn-lg magnetic sheen reveal">Hablemos</a>
+      </div>
+    </section>
+
+    <section class="faq section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag reveal">Preguntas frecuentes</span>
+          <h2 id="faq-title" class="section-title reveal">Lo que sueles preguntar</h2>
+        </header>
+        <div class="faq-list">
+          <details class="faq-card reveal">
+            <summary class="faq-card__summary">
+              <span>¿Cuánto tiempo toma desarrollar un proyecto?</span>
+              <span class="faq-card__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-card__body">
+              <p>Depende del alcance. Un MVP funcional suele estar listo en 4-8 semanas. Proyectos más complejos requieren de 3-6 meses. Siempre definimos un roadmap claro antes de empezar.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-card__summary">
+              <span>¿Trabajan con startups o solo empresas grandes?</span>
+              <span class="faq-card__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-card__body">
+              <p>Con ambos. Nos adaptamos al presupuesto y necesidades de cada cliente. Para startups ofrecemos planes de crecimiento escalables donde empiezas con lo esencial y vas agregando funcionalidades.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-card__summary">
+              <span>¿Qué tecnologías usan?</span>
+              <span class="faq-card__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-card__body">
+              <p>Frontend: React, Next.js, Vue, TypeScript. Backend: Node.js, Python, Go. Mobile: React Native, Flutter. IA: OpenAI, LangChain, TensorFlow. Cloud: AWS, GCP, Vercel. Elegimos la stack según tu caso.</p>
+            </div>
+          </details>
+          <details class="faq-card reveal">
+            <summary class="faq-card__summary">
+              <span>¿Ofrecen soporte después del lanzamiento?</span>
+              <span class="faq-card__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-card__body">
+              <p>Sí. Ofrecemos planes de mantenimiento y soporte 24/7. También podemos capacitar a tu equipo para que puedan operar el producto de forma autónoma.</p>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
     <section class="contacto section" id="contacto" aria-labelledby="contacto-title">
       <div class="container">
-        <header class="section-header" data-animate="fade-up">
-          <span class="section-tag">Contacto</span>
-          <h2 id="contacto-title" class="section-title">Conecta con nosotros</h2>
+        <header class="section-header">
+          <span class="section-tag reveal">Contacto</span>
+          <h2 id="contacto-title" class="section-title reveal">Conecta con nosotros</h2>
         </header>
         <div class="contacto-grid">
           <div class="contacto-info">
-            <div class="contacto-item" data-animate="fade-up">
+            <div class="contacto-item reveal" data-delay="0">
               <span class="contacto-icon" aria-hidden="true">@</span>
               <div>
                 <strong>Email</strong>
                 <a href="mailto:contacto@ramossolution.co">contacto@ramossolution.co</a>
               </div>
             </div>
-            <div class="contacto-item" data-animate="fade-up">
+            <div class="contacto-item reveal" data-delay="1">
               <span class="contacto-icon" aria-hidden="true">#</span>
               <div>
                 <strong>Ubicación</strong>
                 <span>Colombia · Remoto worldwide</span>
               </div>
             </div>
-            <div class="contacto-item" data-animate="fade-up">
+            <div class="contacto-item reveal" data-delay="2">
               <span class="contacto-icon" aria-hidden="true">↗</span>
               <div>
                 <strong>Redes</strong>
@@ -261,7 +313,7 @@
               </div>
             </div>
           </div>
-          <form class="contacto-form glass-panel" aria-label="Formulario de contacto" data-animate="fade-up">
+          <form class="contacto-form glass-panel reveal" aria-label="Formulario de contacto">
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
@@ -274,7 +326,7 @@
               <label for="mensaje">Proyecto o mensaje</label>
               <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos qué necesitas..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+            <button type="submit" class="btn btn-primary btn-full magnetic sheen">Enviar mensaje</button>
             <p class="form-note">Pronto habilitaremos respuesta automática con nuestro asistente de IA.</p>
           </form>
         </div>
@@ -289,8 +341,12 @@
     </div>
   </footer>
 
+  <!-- Mouse trail canvas -->
+  <canvas id="trail-canvas" class="trail-canvas" aria-hidden="true"></canvas>
+
+  <!-- Chatbot widget -->
   <div class="chatbot-widget" id="chatbot-widget" role="dialog" aria-label="Asistente virtual" aria-hidden="true">
-    <button class="chatbot-toggle" aria-label="Abrir asistente virtual">
+    <button class="chatbot-toggle magnetic" aria-label="Abrir asistente virtual">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
