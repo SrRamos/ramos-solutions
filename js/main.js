@@ -655,7 +655,6 @@
     initMagneticButtons();
     initTiltCards();
     initDashboardTilt();
-    initFaq();
     initChatbot();
     initYear();
     initForm();
