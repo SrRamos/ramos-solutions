@@ -1,6 +1,5 @@
-/* Ramos Solution SAS — Main JS v2
-   Neural constellation hero, mouse trail, magnetic buttons,
-   3D tilt cards, scroll progress, reveal animations, FAQ, chatbot
+/* Ramos Solution SAS — Main JS v3
+   Premium dot-mesh hero, scroll progress, reveal animations, modals
    ======================================== */
 
 (function () {
@@ -10,7 +9,7 @@
   const isMobile = window.matchMedia('(max-width: 767.98px), (pointer: coarse)');
 
   /* ========================================
-     Hero Canvas — Dot Mesh Network
+     Hero Canvas — Premium Dot Mesh Network
      ======================================== */
   function initHeroCanvas() {
     const canvas = document.getElementById('hero-canvas');
@@ -18,8 +17,7 @@
     if (!canvas || !hero) return;
 
     if (reducedMotion.matches || isMobile.matches) {
-      canvas.style.background = 'radial-gradient(ellipse at 50% 45%, rgba(99,102,241,0.08) 0%, transparent 60%)';
-      canvas.style.opacity = '0.4';
+      canvas.style.display = 'none';
       return;
     }
 
@@ -30,12 +28,13 @@
     let dots = [];
     let raf = 0;
     let running = false;
+    let lastT = 0;
 
-    const SPACING = 45;
-    const RADIUS = 1.1;
-    const SPEED = 0.12;
-    const LINK_DIST = 90;
-    const MAX_LINKS = 3;
+    const SPACING = 38;
+    const RADIUS = 0.95;
+    const SPEED = 0.105;
+    const LINK_DIST = 86;
+    const MAX_LINKS = 4;
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
@@ -49,33 +48,61 @@
 
     function buildGrid() {
       dots = [];
-      const cols = Math.ceil(W / SPACING) + 1;
-      const rows = Math.ceil(H / SPACING) + 1;
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const ox = i * SPACING + (SPACING / 2);
-          const oy = j * SPACING + (SPACING / 2);
+      const cols = Math.ceil(W / SPACING) + 2;
+      const rows = Math.ceil(H / SPACING) + 2;
+      for (let i = -1; i < cols; i++) {
+        for (let j = -1; j < rows; j++) {
+          const stagger = (j % 2) * (SPACING * 0.5);
+          const ox = i * SPACING + stagger;
+          const oy = j * SPACING;
+          const cx = W * 0.5;
+          const cy = H * 0.46;
+          const dx = ox - cx;
+          const dy = oy - cy;
+          const core = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / Math.max(W, H) * 1.25);
           dots.push({
-            x: ox, y: oy,
-            ox: ox, oy: oy,
+            x: ox, y: oy, ox, oy,
             ph: Math.random() * Math.PI * 2,
             ph2: Math.random() * Math.PI * 2,
+            core,
+            drift: 2.2 + core * 4.6,
           });
         }
       }
     }
 
+    function drawAmbientVeil(t) {
+      const glow = ctx.createRadialGradient(W * 0.5, H * 0.44, 0, W * 0.5, H * 0.44, Math.max(W, H) * 0.56);
+      glow.addColorStop(0, 'rgba(99,102,241,0.105)');
+      glow.addColorStop(0.34, 'rgba(34,211,238,0.045)');
+      glow.addColorStop(1, 'rgba(10,10,15,0)');
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, W, H);
+
+      ctx.save();
+      ctx.globalAlpha = 0.14 + Math.sin(t * 0.45) * 0.025;
+      ctx.strokeStyle = 'rgba(248,250,252,0.16)';
+      ctx.lineWidth = 0.8;
+      for (let k = -2; k < 5; k++) {
+        const y = H * (0.22 + k * 0.11) + Math.sin(t * 0.34 + k) * 5;
+        ctx.beginPath();
+        ctx.moveTo(W * -0.05, y);
+        ctx.bezierCurveTo(W * 0.25, y - 42, W * 0.64, y + 54, W * 1.05, y - 8);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
     function drawMesh(t) {
       ctx.clearRect(0, 0, W, H);
+      drawAmbientVeil(t);
 
-      // Update positions
       for (const d of dots) {
-        d.x = d.ox + Math.sin(t * SPEED + d.ph) * 4;
-        d.y = d.oy + Math.cos(t * SPEED * 0.7 + d.ph2) * 4;
+        d.x = d.ox + Math.sin(t * SPEED + d.ph) * d.drift;
+        d.y = d.oy + Math.cos(t * SPEED * 0.82 + d.ph2) * d.drift;
       }
 
-      // Draw links
-      ctx.lineWidth = 0.7;
+      ctx.lineWidth = 0.65;
       for (let i = 0; i < dots.length; i++) {
         const a = dots[i];
         let links = 0;
@@ -86,8 +113,12 @@
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK_DIST * LINK_DIST) {
             const dist = Math.sqrt(d2);
-            const alpha = (1 - dist / LINK_DIST) * 0.14;
-            ctx.strokeStyle = `rgba(99,102,241,${alpha})`;
+            const core = (a.core + b.core) * 0.5;
+            const alpha = (1 - dist / LINK_DIST) * (0.075 + core * 0.12);
+            const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+            grad.addColorStop(0, `rgba(99,102,241,${alpha})`);
+            grad.addColorStop(1, `rgba(34,211,238,${alpha * 0.88})`);
+            ctx.strokeStyle = grad;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -97,19 +128,26 @@
         }
       }
 
-      // Draw dots
       for (const d of dots) {
+        const pulse = 0.5 + Math.sin(t * 0.8 + d.ph) * 0.5;
+        const r = RADIUS + d.core * 1.15 + pulse * 0.18;
+        const alpha = 0.22 + d.core * 0.38;
         ctx.beginPath();
-        ctx.arc(d.x, d.y, RADIUS, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(34,211,238,0.28)';
+        ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(34,211,238,${alpha})`;
         ctx.fill();
+
+        if (d.core > 0.72 && pulse > 0.86) {
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, r * 3.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(99,102,241,${0.028 * d.core})`;
+          ctx.fill();
+        }
       }
     }
 
-    let lastT = 0;
     function loop(now) {
       if (!running) return;
-      // throttle to ~30fps for subtlety and battery
       if (now - lastT < 33) { raf = requestAnimationFrame(loop); return; }
       lastT = now;
       drawMesh(now * 0.001);
@@ -125,83 +163,7 @@
     visObserver.observe(hero);
 
     resize();
-    window.addEventListener('resize', resize);
-  }
-
-  /* ========================================
-     Mouse Trail Canvas
-     ======================================== */
-  function initTrailCanvas() {
-    const canvas = document.getElementById('trail-canvas');
-    if (!canvas || reducedMotion.matches || isMobile.matches) {
-      if (canvas) canvas.style.display = 'none';
-      return;
-    }
-
-    const ctx = canvas.getContext('2d', { alpha: true });
-    let w = 0, h = 0, dpr = 1;
-    let points = [];
-    let raf = 0;
-
-    function resize() {
-      w = window.innerWidth;
-      h = window.innerHeight;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function addPoint(x, y) {
-      points.push({ x, y, life: 1, size: Math.random() * 2 + 1 });
-      if (points.length > 40) points.shift();
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-
-      for (let i = points.length - 1; i >= 0; i--) {
-        const p = points[i];
-        p.life -= 0.015;
-        if (p.life <= 0) { points.splice(i, 1); continue; }
-
-        const alpha = p.life * 0.4;
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 4);
-        gradient.addColorStop(0, `rgba(99, 102, 241, ${alpha})`);
-        gradient.addColorStop(0.5, `rgba(168, 85, 247, ${alpha * 0.5})`);
-        gradient.addColorStop(1, `rgba(99, 102, 241, 0)`);
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      if (points.length > 1) {
-        ctx.beginPath();
-        ctx.moveTo(points[0].x, points[0].y);
-        for (let i = 1; i < points.length; i++) ctx.lineTo(points[i].x, points[i].y);
-        ctx.strokeStyle = `rgba(99, 102, 241, ${(points[0]?.life || 0) * 0.1})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      raf = requestAnimationFrame(draw);
-    }
-
-    resize();
-    window.addEventListener('resize', resize);
-
-    let lastX = 0, lastY = 0;
-    document.addEventListener('pointermove', (e) => {
-      const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
-      if (dist > 5) {
-        addPoint(e.clientX, e.clientY);
-        lastX = e.clientX;
-        lastY = e.clientY;
-      }
-    });
-
-    draw();
+    window.addEventListener('resize', resize, { passive: true });
   }
 
   /* ========================================
@@ -318,23 +280,6 @@
   }
 
   /* ========================================
-     Magnetic buttons
-     ======================================== */
-  function initMagneticButtons() {
-    if (isMobile.matches || reducedMotion.matches) return;
-
-    document.querySelectorAll('.magnetic').forEach(btn => {
-      btn.addEventListener('pointermove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-      });
-      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
-    });
-  }
-
-  /* ========================================
      3D Tilt cards
      ======================================== */
   function initTiltCards() {
@@ -429,12 +374,10 @@
      ======================================== */
   function init() {
     initHeroCanvas();
-    initTrailCanvas();
     initScrollProgress();
     initHeader();
     initMenu();
     initReveals();
-    initMagneticButtons();
     initTiltCards();
     initModals();
     initYear();

@@ -21,21 +21,27 @@
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Ramos Solutions — Inicio">
         <div class="logo-icon-wrap" aria-hidden="true">
-          <svg class="logo-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="logo-svg" width="52" height="52" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="lg-grad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#6366f1"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#22d3ee"/>
+              <linearGradient id="lg-grad" x1="6" y1="4" x2="66" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f8fafc"/>
+                <stop offset="34%" stop-color="#a855f7"/>
+                <stop offset="72%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
               </linearGradient>
-              <filter id="lg-glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              <linearGradient id="lg-fill" x1="10" y1="8" x2="62" y2="66" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.11)"/>
+                <stop offset="100%" stop-color="rgba(99,102,241,0.03)"/>
+              </linearGradient>
+              <filter id="lg-glow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2.2" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <!-- Outer diamond -->
-            <path class="logo-outer" d="M22 2 L42 22 L22 42 L2 22 Z" stroke="url(#lg-grad)" stroke-width="1" fill="none" opacity="0.35"/>
-            <!-- Inner diamond -->
-            <path class="logo-inner" d="M22 10 L34 22 L22 34 L10 22 Z" stroke="url(#lg-grad)" stroke-width="0.9" fill="none" opacity="0.55"/>
-            <!-- Center point -->
-            <circle class="logo-center" cx="22" cy="22" r="2.5" fill="#22d3ee"/>
+            <path class="logo-seal" d="M36 4 L61 18.5 L61 53.5 L36 68 L11 53.5 L11 18.5 Z" fill="url(#lg-fill)" stroke="url(#lg-grad)" stroke-width="1.05"/>
+            <path class="logo-facet" d="M36 10 L54 21 L54 51 L36 62 L18 51 L18 21 Z" stroke="url(#lg-grad)" stroke-width="0.8" opacity="0.36"/>
+            <text class="logo-monogram" x="36" y="45" text-anchor="middle" fill="#f8fafc">RS</text>
+            <circle class="logo-gem" cx="57" cy="17" r="2.4" fill="#22d3ee"/>
           </svg>
         </div>
         <span class="logo-text" aria-hidden="true">
@@ -50,12 +56,12 @@
 
       <nav id="primary-nav" class="primary-nav" role="navigation" aria-label="Navegación principal">
         <ul class="nav-list">
-          <li><a href="#dolores">Los dolores</a></li>
-          <li><a href="#transformacion">Transformación</a></li>
-          <li><a href="#proceso">Cómo lo hacemos</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#contacto" class="nav-cta magnetic">Hablemos</a></li>
+          <li><a href="#dolores">Problemas reales</a></li>
+          <li><a href="#transformacion">De Excel a IA</a></li>
+          <li><a href="#proceso">Método</a></li>
+          <li><a href="#servicios">Soluciones</a></li>
+          <li><a href="#proyectos">Casos</a></li>
+          <li><a href="#contacto" class="nav-cta">Diagnóstico</a></li>
         </ul>
       </nav>
     </div>
@@ -74,12 +80,9 @@
           Diseñamos y construimos sistemas que automatizan lo que tu equipo hace a mano.
         </p>
         <div class="hero-actions reveal">
-          <a href="#contacto" class="btn btn-primary magnetic sheen">Cuéntanos tu problema</a>
-          <a href="#proyectos" class="btn btn-ghost magnetic">Ver lo que hemos construido</a>
+          <a href="#contacto" class="btn btn-primary sheen">Cuéntanos tu problema</a>
+          <a href="#proyectos" class="btn btn-ghost">Ver lo que hemos construido</a>
         </div>
-      </div>
-      <div class="scroll-indicator" aria-hidden="true">
-        <div class="scroll-indicator__track"><div class="scroll-indicator__dot"></div></div>
       </div>
     </section>
 
@@ -320,7 +323,7 @@
               </svg>
             </div>
             <h3 class="card-title">Infraestructura Invisible</h3>
-            <p class="card-text">Cloud optimizado que tú olvidas que existe. Funciona 99.9% del tiempo.</p>
+            <p class="card-text">Cloud optimizado que tú olvidas que existe: monitoreo, backups y despliegues reproducibles.</p>
             <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
           </article>
 
@@ -424,7 +427,7 @@
       <div class="container cta-inner">
         <h2 id="cta-title" class="cta-title reveal">No necesitas más reuniones. Necesitas un demo.</h2>
         <p class="cta-desc reveal">Cuéntanos qué proceso manual te está consumiendo más tiempo. En una llamada de 30 minutos te decimos si podemos resolverlo y cómo. Sin pitch de ventas. Sin compromiso.</p>
-        <a href="#contacto" class="btn btn-primary btn-lg magnetic sheen reveal">Agendar llamada de 30 min</a>
+        <a href="#contacto" class="btn btn-primary btn-lg sheen reveal">Agendar llamada de 30 min</a>
       </div>
     </section>
 
@@ -470,7 +473,7 @@
               <label for="mensaje">¿Qué proceso manual te está consumiendo más tiempo? <span aria-hidden="true" class="required-mark">*</span></label>
               <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Ej: 'Mi equipo pierde 3 horas diarias copiando datos de Excel a...'" aria-required="true"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-full magnetic sheen">Enviar mensaje</button>
+            <button type="submit" class="btn btn-primary btn-full sheen">Enviar mensaje</button>
             <p class="form-note">Respuesta en 24h. Sin spam.</p>
           </form>
         </div>
@@ -517,7 +520,7 @@
     <h3 id="modal-cloud-title" class="modal__title">Infraestructura Invisible</h3>
     <p class="modal__text"><strong>El problema:</strong> Servidores en oficina que se apagaban en cortes de luz. Backups que nadie verificaba. Un día falló el disco duro. 3 días sin sistema.</p>
     <p class="modal__text"><strong>Lo que construimos:</strong> Migración completa a la nube con auto-scaling, backups automáticos, y monitoreo 24/7. Infraestructura como código: todo reproducible en minutos.</p>
-    <p class="modal__text"><strong>El resultado:</strong> 99.9% uptime. Backups que funcionan (los probamos mensualmente). Y un equipo de IT que duerme tranquilo.</p>
+    <p class="modal__text"><strong>El resultado:</strong> Menos operación manual, recuperación más confiable y un equipo de IT que duerme tranquilo.</p>
   </div>
 
   <div class="modal" id="modal-bi" role="dialog" aria-modal="true" aria-labelledby="modal-bi-title" aria-hidden="true">
@@ -536,7 +539,6 @@
     <p class="modal__text"><strong>El resultado:</strong> Accesos sospechosos detectados en minutos, no en meses. Certificación de cumplimiento lista para auditorías.</p>
   </div>
 
-  <canvas id="trail-canvas" class="trail-canvas" aria-hidden="true"></canvas>
   <script src="js/main.js" defer></script>
 </body>
 </html>
