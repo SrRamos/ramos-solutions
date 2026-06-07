@@ -363,17 +363,25 @@
 
   function initForm() {
     const form = document.querySelector('.contacto-form');
-    form?.addEventListener('submit', (e) => {
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) return;
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = '¡Mensaje enviado! Te contactaremos pronto.';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.disabled = false;
-        form.reset();
-      }, 3000);
+
+      const data = new FormData(form);
+      const subject = encodeURIComponent('Diagnóstico Ramos Solutions — proceso manual');
+      const body = encodeURIComponent([
+        'Nombre: ' + (data.get('nombre') || ''),
+        'Email: ' + (data.get('email') || ''),
+        'Empresa: ' + (data.get('empresa') || ''),
+        'Herramientas actuales: ' + (data.get('herramientas') || ''),
+        '',
+        'Proceso manual a diagnosticar:',
+        data.get('mensaje') || ''
+      ].join('\n'));
+
+      window.location.href = 'mailto:contacto@ramossolutions.co?subject=' + subject + '&body=' + body;
     });
   }
 
