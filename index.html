@@ -1,27 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ramos Solutions — Software e IA para empresas que necesitan transformar operaciones manuales en sistemas inteligentes.">
+  <meta name="description" content="Ramos Solutions convierte procesos manuales en sistemas web, apps, dashboards y agentes de IA. Demo funcional en semanas para empresas en Colombia y LatAm.">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0a0a0f">
-  <title>Ramos Solutions — Software &amp; IA</title>
+  <meta name="geo.region" content="CO">
+  <meta name="geo.placename" content="Bogotá">
+  <link rel="canonical" href="https://ramossolutions.co/">
+  <title>Ramos Solutions — Automatización, Software e IA en Colombia</title>
+
+  <meta property="og:title" content="Ramos Solutions — De procesos manuales a sistemas con IA">
+  <meta property="og:description" content="Construimos software operativo, dashboards y agentes de IA para empresas que quieren dejar atrás Excel, WhatsApp y copiar-pegar.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:url" content="https://ramossolutions.co/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ramos Solutions — Software operativo e IA">
+  <meta name="twitter:description" content="Demo funcional en semanas. Con tu proceso real. Sin PowerPoint eterno.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ramos Solutions S.A.S.",
+    "url": "https://ramossolutions.co/",
+    "email": "contacto@ramossolutions.co",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CO",
+      "addressRegion": "Bogotá"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contacto@ramossolutions.co",
+      "contactType": "sales",
+      "availableLanguage": ["Spanish", "English"]
+    },
+    "description": "Empresa colombiana de software, automatización e inteligencia artificial para convertir procesos manuales en sistemas operativos reales."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿Ramos Solutions vende IA para cualquier problema?","acceptedAnswer":{"@type":"Answer","text":"No. Primero se mapea el proceso. Si una regla simple o una integración resuelve mejor el problema, se recomienda eso antes que IA."}},
+      {"@type":"Question","name":"¿Qué recibo después del diagnóstico?","acceptedAnswer":{"@type":"Answer","text":"Una lectura clara del proceso, oportunidades de automatización, riesgos técnicos y el primer demo viable para validar con el equipo."}},
+      {"@type":"Question","name":"¿El demo funcional es un mockup?","acceptedAnswer":{"@type":"Answer","text":"No. El objetivo es construir algo usable para probar el flujo, las reglas y la experiencia con datos reales o cercanos al proceso real."}}
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Saltar al contenido</a>
-
   <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar"></div></div>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Ramos Solutions — Inicio">
+      <a href="#main" class="logo" aria-label="Ramos Solutions — Inicio">
         <div class="logo-icon-wrap" aria-hidden="true">
-          <svg class="logo-svg" width="52" height="52" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="logo-svg" width="52" height="52" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
             <defs>
               <linearGradient id="lg-grad" x1="6" y1="4" x2="66" y2="68" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#f8fafc"/>
@@ -49,18 +94,16 @@
           <span class="logo-word logo-word--accent">Solutions</span>
         </span>
       </a>
-
       <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
         <span class="hamburger" aria-hidden="true"></span>
       </button>
-
       <nav id="primary-nav" class="primary-nav" role="navigation" aria-label="Navegación principal">
         <ul class="nav-list">
-          <li><a href="#dolores">Problemas reales</a></li>
-          <li><a href="#transformacion">De Excel a IA</a></li>
-          <li><a href="#proceso">Método</a></li>
-          <li><a href="#servicios">Soluciones</a></li>
-          <li><a href="#proyectos">Casos</a></li>
+          <li><a href="#problemas">Problemas</a></li>
+          <li><a href="#metodo">Método 3 semanas</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#procesos">Procesos</a></li>
+          <li><a href="#principios">Qué no hacemos</a></li>
           <li><a href="#contacto" class="nav-cta">Diagnóstico</a></li>
         </ul>
       </nav>
@@ -68,417 +111,223 @@
   </header>
 
   <main id="main">
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
-      <div class="hero-map-callout" aria-hidden="true">
-        <span class="hero-map-callout__ring"></span>
-        <span class="hero-map-callout__label">Colombia</span>
-      </div>
+      <div class="hero-map-callout" aria-hidden="true"><span class="hero-map-callout__ring"></span><span class="hero-map-callout__label">Colombia</span></div>
       <div class="container hero-content">
-        <div class="hero-badge reveal"><span class="badge-dot" aria-hidden="true"></span><span>Software e IA desde Colombia para operaciones que quieren moverse más rápido</span></div>
-        <h1 id="hero-title" class="hero-title reveal">
-          Tu competencia aún usa Excel.<br><span class="gradient-text sweep">Tú ya tienes IA.</span>
-        </h1>
-        <p class="hero-lead reveal">
-          Diseñamos y construimos sistemas que automatizan lo que tu equipo hace a mano.
-        </p>
+        <div class="hero-badge reveal"><span class="badge-dot" aria-hidden="true"></span><span>Software operativo e IA para empresas que ya se cansaron de improvisar</span></div>
+        <h1 id="hero-title" class="hero-title reveal">Deja de operar tu empresa a punta de <span class="gradient-text sweep">Excel, WhatsApp y memoria.</span></h1>
+        <p class="hero-lead reveal">Ramos Solutions convierte procesos manuales en sistemas web, apps, dashboards y agentes de IA que tu equipo puede probar en semanas, no en meses.</p>
+        <p class="hero-proof reveal"><strong>Demo funcional en 3 semanas.</strong> Con tu proceso real. Sin PowerPoint eterno.</p>
         <div class="hero-actions reveal">
-          <a href="#contacto" class="btn btn-primary sheen">Cuéntanos tu problema</a>
-          <a href="#proyectos" class="btn btn-ghost">Ver lo que hemos construido</a>
+          <a href="#contacto" class="btn btn-primary sheen">Agendar diagnóstico de 30 min</a>
+          <a href="#casos" class="btn btn-ghost">Ver casos reales</a>
+        </div>
+        <div class="hero-trust reveal" aria-label="Señales de confianza">
+          <span>Colombia · LatAm</span><span>Software + IA + Integraciones</span><span>Demo antes de escalar</span>
         </div>
       </div>
     </section>
 
-    <!-- PAIN POINTS -->
-    <section class="pain-section section" id="dolores" aria-labelledby="pain-title">
+    <section class="pain-section section" id="problemas" aria-labelledby="pain-title">
       <div class="container">
         <header class="section-header">
-          <span class="section-tag reveal">Los dolores reales</span>
-          <h2 id="pain-title" class="section-title reveal">No eres el único. Solo el que aún no actúa.</h2>
-          <p class="section-sub reveal">Datos de Deloitte, Gartner, Standish Group y Stack Overflow. No los inventamos nosotros.</p>
+          <span class="section-tag reveal">La señal</span>
+          <h2 id="pain-title" class="section-title reveal">No necesitas “transformación digital”. Necesitas dejar de repetir lo mismo a mano.</h2>
+          <p class="section-sub reveal">La necesidad aparece cuando el negocio crece, pero la operación sigue dependiendo de personas persiguiendo datos.</p>
         </header>
-
-        <div class="pain-grid reveal">
-          <div class="pain-card pain-card--red">
-            <div class="pain-card__num">01</div>
-            <h3 class="pain-card__title">7 de cada 10 proyectos de software se salen de control</h3>
-            <p class="pain-card__desc">El 71% excede presupuesto, tiempo o alcance. En EE.UU. se desperdician US$55 mil millones al año en proyectos IT fallidos. — <em>Standish Group CHAOS Report</em></p>
-          </div>
-          <div class="pain-card pain-card--orange">
-            <div class="pain-card__num">02</div>
-            <h3 class="pain-card__title">El 77% de las empresas no sabe cómo usar IA</h3>
-            <p class="pain-card__desc">Solo el 11% tiene agentes de IA en producción. El 35% no tiene estrategia y el 42% aún la está desarrollando. — <em>Deloitte Tech Trends 2026</em></p>
-          </div>
-          <div class="pain-card pain-card--amber">
-            <div class="pain-card__num">03</div>
-            <h3 class="pain-card__title">La IA genera adopción, no resultados</h3>
-            <p class="pain-card__desc">"Las iniciativas de IA distribuidas crean impresionantes números de adopción, pero rara vez producen resultados empresariales significativos." — <em>PwC AI Business Predictions 2026</em></p>
-          </div>
-          <div class="pain-card pain-card--yellow">
-            <div class="pain-card__num">04</div>
-            <h3 class="pain-card__title">Tu equipo pierde horas en tareas que una máquina haría mejor</h3>
-            <p class="pain-card__desc">El 81% de desarrolladores ve la productividad como el principal beneficio de la IA — lo que significa que hoy pierden tiempo en trabajo manual. — <em>Stack Overflow Developer Survey 2024</em></p>
-          </div>
+        <div class="symptom-grid reveal">
+          <article class="symptom-card"><span>01</span><h3>El reporte depende de una persona</h3><p>Si alguien falta, nadie sabe qué vendió, qué falta o qué cliente está esperando.</p></article>
+          <article class="symptom-card"><span>02</span><h3>WhatsApp es tu sistema operativo</h3><p>Pedidos, soporte, aprobaciones y reclamos viven en chats imposibles de auditar.</p></article>
+          <article class="symptom-card"><span>03</span><h3>Cada área tiene “su Excel”</h3><p>Ventas, operación y gerencia miran números distintos y discuten cuál es el real.</p></article>
+          <article class="symptom-card"><span>04</span><h3>Tu equipo sabe qué hacer, pero el sistema no</h3><p>Las reglas del negocio están en la cabeza de personas clave, no en una plataforma.</p></article>
+          <article class="symptom-card"><span>05</span><h3>La IA se volvió conversación, no resultado</h3><p>Hay demos bonitas, pero nada conectado a tus datos, roles, aprobaciones y excepciones.</p></article>
+          <article class="symptom-card symptom-card--cta"><span>→</span><h3>Si marcaste dos, hay oportunidad</h3><p>Ahí está el nuevo estándar: convertir fricción operativa en software que trabaja contigo.</p><a href="#contacto">Encontrar qué automatizar</a></article>
         </div>
       </div>
     </section>
 
-    <!-- BEFORE / AFTER -->
     <section class="diagram-section section" id="transformacion" aria-labelledby="diagram-title">
       <div class="container">
         <header class="section-header">
           <span class="section-tag reveal">La transformación</span>
-          <h2 id="diagram-title" class="section-title reveal">Tu operación hoy vs. cómo podría ser</h2>
+          <h2 id="diagram-title" class="section-title reveal">Del caos operativo a un flujo que todos quieren seguir.</h2>
+          <p class="section-sub reveal">No vendemos tecnología por moda. Diseñamos el sistema que vuelve visible, medible y repetible tu operación.</p>
         </header>
-
-        <div class="diagram-pair reveal">
-          <!-- BEFORE -->
-          <div class="diagram-half diagram-half--before">
-            <svg class="diagram-svg" viewBox="0 0 520 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-              <defs>
-                <linearGradient id="d-before" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ef4444" stop-opacity="0.6"/><stop offset="100%" stop-color="#f97316" stop-opacity="0.4"/></linearGradient>
-              </defs>
-              <rect x="10" y="10" width="500" height="380" rx="20" fill="none" stroke="rgba(239,68,68,0.08)" stroke-width="1" stroke-dasharray="8 4"/>
-              <text x="260" y="42" text-anchor="middle" fill="#ef4444" font-size="16" font-weight="700" font-family="Inter,sans-serif">HOY: 8 herramientas, 0 conexiones</text>
-
-              <rect x="35" y="65" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="80" y="97" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Excel</text>
-              <rect x="150" y="85" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="195" y="117" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">WhatsApp</text>
-              <rect x="55" y="160" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="100" y="192" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Email</text>
-              <rect x="190" y="150" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="235" y="182" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Notion</text>
-              <rect x="120" y="235" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="165" y="267" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Drive</text>
-              <rect x="260" y="220" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="305" y="252" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Slack</text>
-              <rect x="40" y="295" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="85" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">CRM A</text>
-              <rect x="280" y="295" width="90" height="55" rx="8" fill="none" stroke="url(#d-before)" stroke-width="1.5" stroke-dasharray="5 3"/>
-              <text x="325" y="327" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">CRM B</text>
-
-              <path d="M125 92 L150 112 M240 140 L260 220 M145 215 L190 205 M100 192 L55 160 M210 275 L260 295" stroke="#ef4444" stroke-width="0.8" opacity="0.18" stroke-dasharray="4 3"/>
-              <path d="M80 350 L120 290 M325 295 L370 270 M210 192 L190 150" stroke="#ef4444" stroke-width="0.8" opacity="0.12" stroke-dasharray="4 3"/>
-
-              <circle cx="90" cy="78" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
-              <circle cx="230" cy="178" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
-              <circle cx="170" cy="278" r="6" fill="#ef4444" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-              <text x="260" y="390" text-anchor="middle" fill="#475569" font-size="12" font-family="Inter,sans-serif">Datos dispersos · Decisiones a ciegas · Equipo agotado</text>
+        <div class="transformation-panel reveal">
+          <div class="transform-column transform-column--before">
+            <span class="transform-label">Antes</span>
+            <h3>Datos repartidos. Decisiones lentas.</h3>
+            <ul>
+              <li>Excel, chats, correos y CRM desconectados.</li>
+              <li>Reportes manuales que llegan tarde.</li>
+              <li>Errores difíciles de rastrear.</li>
+              <li>Gerencia preguntando “¿en qué va eso?”.</li>
+            </ul>
+          </div>
+          <div class="transform-core" aria-hidden="true">
+            <svg viewBox="0 0 260 220" role="img" aria-label="Flujo de transformación de operación manual a sistema conectado">
+              <defs><linearGradient id="flow-grad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6366f1"/><stop offset="0.55" stop-color="#a855f7"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+              <circle cx="130" cy="110" r="48" fill="none" stroke="url(#flow-grad)" stroke-width="2" opacity="0.85"/>
+              <circle cx="130" cy="110" r="14" fill="#22d3ee" opacity="0.95"><animate attributeName="r" values="12;16;12" dur="3s" repeatCount="indefinite"/></circle>
+              <path d="M20 40 C70 20 82 92 130 110 C176 128 188 202 240 180" fill="none" stroke="url(#flow-grad)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <circle cx="0" cy="0" r="4" fill="#f8fafc"><animateMotion path="M20 40 C70 20 82 92 130 110 C176 128 188 202 240 180" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/></circle>
+              <text x="130" y="176" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter,sans-serif">Reglas + datos + IA cuando aplica</text>
             </svg>
           </div>
-
-          <!-- ARROW (desktop only) -->
-          <div class="diagram-arrow" aria-hidden="true">
-            <svg width="60" height="60" viewBox="0 0 60 60">
-              <path d="M10 30 L45 30" stroke="url(#d-after)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
-              <polygon points="38,24 50,30 38,36" fill="#22d3ee" opacity="0.6"/>
-            </svg>
-          </div>
-
-          <!-- AFTER -->
-          <div class="diagram-half diagram-half--after">
-            <svg class="diagram-svg" viewBox="0 0 520 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-              <defs>
-                <linearGradient id="d-after" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity="0.9"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0.8"/></linearGradient>
-                <filter id="d-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-              </defs>
-              <rect x="10" y="10" width="500" height="380" rx="20" fill="none" stroke="rgba(99,102,241,0.12)" stroke-width="1"/>
-              <text x="260" y="42" text-anchor="middle" fill="#6366f1" font-size="16" font-weight="700" font-family="Inter,sans-serif">MAÑANA: Todo conectado, todo visible</text>
-
-              <circle cx="260" cy="200" r="55" fill="none" stroke="url(#d-after)" stroke-width="2.5" filter="url(#d-glow)"/>
-              <circle cx="260" cy="200" r="16" fill="#22d3ee" filter="url(#d-glow)">
-                <animate attributeName="r" values="16;18;16" dur="3s" repeatCount="indefinite"/>
-              </circle>
-              <text x="260" y="275" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600" font-family="Inter,sans-serif">Ramos Hub</text>
-
-              <circle cx="260" cy="85" r="10" fill="#6366f1" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>
-              <text x="260" y="70" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">Ventas</text>
-              <circle cx="380" cy="200" r="10" fill="#a855f7" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite"/></circle>
-              <text x="395" y="203" text-anchor="start" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">IA</text>
-              <circle cx="260" cy="315" r="10" fill="#22d3ee" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/></circle>
-              <text x="260" y="338" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">BI</text>
-              <circle cx="140" cy="200" r="10" fill="#6366f1" opacity="0.9"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></circle>
-              <text x="125" y="203" text-anchor="end" fill="#94a3b8" font-size="10" font-family="Inter,sans-serif">Cloud</text>
-
-              <line x1="260" y1="145" x2="260" y2="95" stroke="url(#d-after)" stroke-width="1.5"/>
-              <line x1="315" y1="200" x2="370" y2="200" stroke="url(#d-after)" stroke-width="1.5"/>
-              <line x1="260" y1="255" x2="260" y2="305" stroke="url(#d-after)" stroke-width="1.5"/>
-              <line x1="205" y1="200" x2="150" y2="200" stroke="url(#d-after)" stroke-width="1.5"/>
-
-              <circle cx="0" cy="0" r="3.5" fill="#22d3ee"><animateMotion path="M260 145 L260 95" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
-              <circle cx="0" cy="0" r="3.5" fill="#a855f7"><animateMotion path="M315 200 L370 200" dur="2.2s" repeatCount="indefinite" begin="0.4s"/><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.4s"/></circle>
-              <circle cx="0" cy="0" r="3.5" fill="#6366f1"><animateMotion path="M260 255 L260 305" dur="2s" repeatCount="indefinite" begin="0.8s"/><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.8s"/></circle>
-              <circle cx="0" cy="0" r="3.5" fill="#22d3ee"><animateMotion path="M205 200 L150 200" dur="1.6s" repeatCount="indefinite" begin="1.2s"/><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite" begin="1.2s"/></circle>
-
-              <text x="260" y="390" text-anchor="middle" fill="#475569" font-size="12" font-family="Inter,sans-serif">Datos unificados · IA anticipando · Decisiones en tiempo real</text>
-            </svg>
+          <div class="transform-column transform-column--after">
+            <span class="transform-label">Después</span>
+            <h3>Un flujo único. Control visible.</h3>
+            <ul>
+              <li>Entradas claras: WhatsApp, CRM, ERP, formularios.</li>
+              <li>Reglas, responsables y alertas automáticas.</li>
+              <li>Dashboards con datos actuales.</li>
+              <li>IA integrada solo donde genera ventaja real.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="proceso section" id="proceso" aria-labelledby="proceso-title">
+    <section class="proceso section" id="metodo" aria-labelledby="proceso-title">
       <div class="container">
         <header class="section-header">
-          <span class="section-tag reveal">Cómo lo hacemos</span>
-          <h2 id="proceso-title" class="section-title reveal">No te vendemos humo. Te mostramos cómo funciona antes de cobrar.</h2>
-          <p class="section-sub reveal">En 3 semanas tienes un demo funcional. No un PowerPoint.</p>
+          <span class="section-tag reveal">Método 3 semanas</span>
+          <h2 id="proceso-title" class="section-title reveal">Primero lo pruebas. Luego decides si escala.</h2>
+          <p class="section-sub reveal">La exclusividad no está en hablar bonito. Está en reducir riesgo antes de pedirte una gran inversión.</p>
         </header>
-
-        <div class="process-steps reveal">
-          <div class="process-step">
-            <div class="process-step__num">01</div>
-            <h3 class="process-step__title">Escuchamos primero</h3>
-            <p class="process-step__desc">Nos sentamos con tu equipo y mapeamos qué procesos te consumen más tiempo. No asumimos nada. Documentamos todo.</p>
-          </div>
-          <div class="process-step__arrow" aria-hidden="true">
-            <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12 L32 12 M26 6 L32 12 L26 18" stroke="rgba(99,102,241,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          </div>
-          <div class="process-step">
-            <div class="process-step__num">02</div>
-            <h3 class="process-step__title">Diseñamos con tu equipo</h3>
-            <p class="process-step__desc">Tu conocimiento del negocio + nuestra experiencia técnica. La arquitectura la validamos juntos antes de escribir una línea de código.</p>
-          </div>
-          <div class="process-step__arrow" aria-hidden="true">
-            <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12 L32 12 M26 6 L32 12 L26 18" stroke="rgba(99,102,241,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          </div>
-          <div class="process-step">
-            <div class="process-step__num">03</div>
-            <h3 class="process-step__title">Demo funcional en 3 semanas</h3>
-            <p class="process-step__desc">No mockups. Un sistema real que puedes usar, probar y criticar. Si no te convence, no sigues. Sin letra pequeña.</p>
-          </div>
-          <div class="process-step__arrow" aria-hidden="true">
-            <svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12 L32 12 M26 6 L32 12 L26 18" stroke="rgba(99,102,241,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-          </div>
-          <div class="process-step">
-            <div class="process-step__num">04</div>
-            <h3 class="process-step__title">Escala con soporte real</h3>
-            <p class="process-step__desc">Llevamos tu demo a producción. Luego nos quedamos cerca. No te dejamos solo con un manual de 200 páginas.</p>
-          </div>
+        <div class="method-timeline reveal">
+          <article><span>Día 1–3</span><h3>Mapa del proceso</h3><p>Vemos quién hace qué, dónde se pierden datos y qué tarea manual está costando reputación, tiempo o dinero.</p></article>
+          <article><span>Semana 1</span><h3>Diseño del flujo</h3><p>Definimos pantallas, reglas, integraciones, permisos y puntos donde la IA sí aporta.</p></article>
+          <article><span>Semana 2–3</span><h3>Demo funcional</h3><p>Construimos algo usable para que tu equipo lo toque, critique y valide. No es una presentación.</p></article>
+          <article><span>Luego</span><h3>Producción con control</h3><p>Cloud, seguridad, roles, monitoreo, soporte y mejoras para convertir el demo en sistema real.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="servicios section" id="servicios" aria-labelledby="servicios-title">
+    <section class="projects-section section" id="casos" aria-labelledby="projects-title">
       <div class="container">
         <header class="section-header">
-          <span class="section-tag reveal">Qué hacemos</span>
-          <h2 id="servicios-title" class="section-title reveal">Tecnología que resuelve problemas de verdad</h2>
+          <span class="section-tag reveal">Prueba real</span>
+          <h2 id="projects-title" class="section-title reveal">Lo que genera confianza no es prometer. Es construir.</h2>
+          <p class="section-sub reveal">Mostramos productos reales y estados reales. Sin logos inventados. Sin testimonios ficticios.</p>
         </header>
-        <div class="cards-grid">
-          <article class="card reveal" data-delay="0" data-modal="modal-software">
-            <div class="card-diagram" aria-hidden="true">
-              <svg viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
-                <rect x="5" y="10" width="25" height="40" rx="4" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-                <rect x="35" y="5" width="30" height="50" rx="4" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.8"/>
-                <rect x="70" y="15" width="25" height="30" rx="4" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-                <line x1="30" y1="30" x2="35" y2="30" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
-                <line x1="65" y1="30" x2="70" y2="30" stroke="#22d3ee" stroke-width="1" opacity="0.6"/>
-                <circle cx="32.5" cy="30" r="2" fill="#22d3ee" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/></circle>
-                <circle cx="67.5" cy="30" r="2" fill="#22d3ee" opacity="0.8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" begin="1s"/></circle>
-              </svg>
-            </div>
-            <h3 class="card-title">Software que Escala</h3>
-            <p class="card-text">Plataformas que crecen contigo sin reescribir código cada 6 meses.</p>
-            <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
-          </article>
-
-          <article class="card reveal" data-delay="1" data-modal="modal-apps">
-            <div class="card-diagram" aria-hidden="true">
-              <svg viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
-                <rect x="30" y="2" width="40" height="56" rx="6" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.7"/>
-                <rect x="36" y="10" width="28" height="28" rx="2" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
-                <line x1="40" y1="45" x2="60" y2="45" stroke="#a855f7" stroke-width="1.5" opacity="0.3"/>
-                <circle cx="50" cy="50" r="2" fill="#22d3ee" opacity="0.8"><animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/></circle>
-              </svg>
-            </div>
-            <h3 class="card-title">Apps que Aman</h3>
-            <p class="card-text">Experiencias móviles que tu equipo y clientes usan todos los días.</p>
-            <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
-          </article>
-
-          <article class="card reveal" data-delay="2" data-modal="modal-ia">
-            <div class="card-diagram" aria-hidden="true">
-              <svg viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
-                <circle cx="40" cy="30" r="14" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
-                <circle cx="80" cy="30" r="14" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.6"/>
-                <line x1="54" y1="30" x2="66" y2="30" stroke="#22d3ee" stroke-width="1" opacity="0.5"/>
-                <circle cx="60" cy="30" r="4" fill="#22d3ee" opacity="0.9"><animate attributeName="r" values="4;5.5;4" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.4;0.8" dur="2.5s" repeatCount="indefinite"/></circle>
-                <circle cx="40" cy="30" r="2" fill="#6366f1" opacity="0.6"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
-                <circle cx="80" cy="30" r="2" fill="#a855f7" opacity="0.6"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-              </svg>
-            </div>
-            <h3 class="card-title">IA que No Duerme</h3>
-            <p class="card-text">Agentes que responden, predicen y automatizan lo que tu equipo hace a mano.</p>
-            <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
-          </article>
-
-          <article class="card reveal" data-delay="3" data-modal="modal-cloud">
-            <div class="card-diagram" aria-hidden="true">
-              <svg viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
-                <path d="M20 40 Q20 25 35 25 Q40 10 55 15 Q65 5 80 15 Q95 10 100 25 Q115 25 110 40 Q110 50 95 50 L25 50 Q10 50 20 40" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-                <circle cx="35" cy="35" r="2" fill="#22d3ee" opacity="0.7"><animate attributeName="cy" values="35;28;35" dur="3s" repeatCount="indefinite"/></circle>
-                <circle cx="60" cy="38" r="2" fill="#22d3ee" opacity="0.7"><animate attributeName="cy" values="38;30;38" dur="2.5s" repeatCount="indefinite" begin="0.5s"/></circle>
-                <circle cx="85" cy="36" r="2" fill="#22d3ee" opacity="0.7"><animate attributeName="cy" values="36;29;36" dur="2.8s" repeatCount="indefinite" begin="1s"/></circle>
-              </svg>
-            </div>
-            <h3 class="card-title">Infraestructura Invisible</h3>
-            <p class="card-text">Cloud optimizado que tú olvidas que existe: monitoreo, backups y despliegues reproducibles.</p>
-            <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
-          </article>
-
-          <article class="card reveal" data-delay="4" data-modal="modal-bi">
-            <div class="card-diagram" aria-hidden="true">
-              <svg viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
-                <rect x="15" y="35" width="12" height="18" rx="2" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
-                <rect x="35" y="20" width="12" height="33" rx="2" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
-                <rect x="55" y="10" width="12" height="43" rx="2" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.8"/>
-                <rect x="75" y="25" width="12" height="28" rx="2" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
-                <rect x="95" y="30" width="12" height="23" rx="2" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.4"/>
-                <circle cx="61" cy="5" r="3" fill="#22d3ee" opacity="0.9"><animate attributeName="cy" values="5;2;5" dur="2s" repeatCount="indefinite"/></circle>
-              </svg>
-            </div>
-            <h3 class="card-title">Visión Total</h3>
-            <p class="card-text">Dashboards con todos tus datos en una pantalla. Sin copiar y pegar entre 5 herramientas.</p>
-            <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
-          </article>
-
-          <article class="card reveal" data-delay="5" data-modal="modal-security">
-            <div class="card-diagram" aria-hidden="true">
-              <svg viewBox="0 0 120 60" preserveAspectRatio="xMidYMid meet">
-                <path d="M60 5 L85 15 L85 35 Q85 50 60 58 Q35 50 35 35 L35 15 Z" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.5"/>
-                <path d="M52 30 L57 35 L68 24" stroke="#22d3ee" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><animate attributeName="stroke-dasharray" values="0 50; 50 0" dur="2s" repeatCount="indefinite"/></path>
-                <circle cx="60" cy="5" r="3" fill="#22d3ee" opacity="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>
-              </svg>
-            </div>
-            <h3 class="card-title">Protección Real</h3>
-            <p class="card-text">Seguridad proactiva que detecta amenazas antes de que sucedan. No después.</p>
-            <button class="card-link" type="button">Ver caso de uso <span aria-hidden="true">→</span></button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects-section section" id="proyectos" aria-labelledby="projects-title">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag reveal">Lo que hemos construido</span>
-          <h2 id="projects-title" class="section-title reveal">De la idea al producto real</h2>
-        </header>
-
-        <div class="projects-grid">
-          <article class="project-card reveal" data-delay="0">
+        <div class="projects-grid projects-grid--featured">
+          <article class="project-card project-card--featured reveal">
             <div class="project-card__visual" aria-hidden="true">
-              <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                <rect width="400" height="200" fill="#111118" rx="16"/>
-                <!-- Stage hint -->
-                <rect x="60" y="50" width="120" height="100" rx="8" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.3"/>
-                <rect x="80" y="70" width="80" height="60" rx="4" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.2"/>
-                <circle cx="120" cy="100" r="12" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.5"/>
-                <!-- Ticket -->
-                <rect x="220" y="60" width="120" height="80" rx="6" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.4"/>
-                <line x1="240" y1="90" x2="320" y2="90" stroke="#94a3b8" stroke-width="1" opacity="0.3"/>
-                <line x1="240" y1="105" x2="300" y2="105" stroke="#94a3b8" stroke-width="1" opacity="0.3"/>
-                <circle cx="340" cy="100" r="8" fill="none" stroke="#22d3ee" stroke-width="1" opacity="0.5"/>
-                <path d="M336 100 L340 104 L346 96" stroke="#22d3ee" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <!-- Particles -->
-                <circle cx="0" cy="0" r="2.5" fill="#22d3ee"><animateMotion path="M180 100 L220 100" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/></circle>
+              <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="400" height="220" fill="#111118" rx="16"/>
+                <rect x="42" y="48" width="132" height="104" rx="10" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.55"/>
+                <circle cx="108" cy="100" r="26" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+                <path d="M92 100 H126 M108 84 V116" stroke="#22d3ee" stroke-width="1.2" opacity="0.55"/>
+                <rect x="230" y="58" width="112" height="88" rx="8" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.55"/>
+                <line x1="250" y1="88" x2="320" y2="88" stroke="#94a3b8" opacity="0.4"/>
+                <line x1="250" y1="106" x2="306" y2="106" stroke="#94a3b8" opacity="0.32"/>
+                <circle cx="332" cy="126" r="9" fill="none" stroke="#22d3ee"/>
+                <path d="M328 126 L332 130 L338 120" stroke="#22d3ee" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <circle cx="0" cy="0" r="3" fill="#22d3ee"><animateMotion path="M174 100 L230 100" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/></circle>
               </svg>
             </div>
             <div class="project-card__content">
-              <span class="project-card__label">Marketplace + Boletería + IA</span>
+              <span class="project-card__label">Marketplace + Boletería + Control QR</span>
               <h3 class="project-card__title">Konvoka</h3>
-              <p class="project-card__desc">Plataforma para organizar eventos en Colombia y Latinoamérica. Marketplace de descubrimiento, boletería digital, control de acceso QR y dashboard de métricas en vivo. Todo en uno.</p>
-              <p class="project-card__quote">"Tu escenario, tu historia. Publicación gratuita. Vendés lo que cabe en el teatro y lo que cabe en internet."</p>
+              <p class="project-card__desc">Plataforma para organizar eventos en Colombia y Latinoamérica: descubrimiento, boletería digital, control de acceso por QR y dashboard de ventas.</p>
+              <ul class="project-facts">
+                <li>Producto público: konvoka.co</li>
+                <li>Flujo completo: publicación, compra, ticket y validación.</li>
+                <li>Prueba de que Ramos Solutions construye producto, no solo discurso.</li>
+              </ul>
               <a href="https://konvoka.co" target="_blank" rel="noopener" class="project-card__link">Visitar konvoka.co <span aria-hidden="true">↗</span></a>
             </div>
           </article>
-
-          <article class="project-card reveal" data-delay="1">
-            <div class="project-card__visual project-card__visual--wip" aria-hidden="true">
-              <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice">
-                <rect width="400" height="200" fill="#0d0d14" rx="16"/>
-                <!-- Abstract signal waves -->
-                <path d="M50 100 Q100 60 150 100 Q200 140 250 100 Q300 60 350 100" stroke="#6366f1" stroke-width="1.5" fill="none" opacity="0.3"/>
-                <path d="M50 110 Q100 70 150 110 Q200 150 250 110 Q300 70 350 110" stroke="#a855f7" stroke-width="1" fill="none" opacity="0.2"/>
-                <circle cx="200" cy="100" r="20" fill="none" stroke="#22d3ee" stroke-width="1.5" opacity="0.4">
-                  <animate attributeName="r" values="20;30;20" dur="3s" repeatCount="indefinite"/>
-                  <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="200" cy="100" r="6" fill="#22d3ee" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <text x="200" y="170" text-anchor="middle" fill="#475569" font-size="14" font-family="Inter,sans-serif" font-weight="600">En desarrollo</text>
-              </svg>
-            </div>
-            <div class="project-card__content">
-              <span class="project-card__label">Próximo lanzamiento</span>
-              <h3 class="project-card__title">Signal &amp; Grain</h3>
-              <p class="project-card__desc">Producto en construcción. Pronto más detalles.</p>
-            </div>
-          </article>
+          <aside class="lab-card reveal" aria-labelledby="lab-title">
+            <span class="project-card__label">En laboratorio</span>
+            <h3 id="lab-title">Signal &amp; Grain</h3>
+            <p>Producto en desarrollo privado. Lo mostramos como pipeline real, no como caso terminado. Más detalles cuando esté listo para validación pública.</p>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section" aria-labelledby="cta-title">
-      <div class="container cta-inner">
-        <h2 id="cta-title" class="cta-title reveal">No necesitas más reuniones. Necesitas un demo.</h2>
-        <p class="cta-desc reveal">Cuéntanos qué proceso manual te está consumiendo más tiempo. En una llamada de 30 minutos te decimos si podemos resolverlo y cómo. Sin pitch de ventas. Sin compromiso.</p>
-        <a href="#contacto" class="btn btn-primary btn-lg sheen reveal">Agendar llamada de 30 min</a>
+    <section class="servicios section" id="procesos" aria-labelledby="servicios-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag reveal">Procesos que automatizamos</span>
+          <h2 id="servicios-title" class="section-title reveal">No compras “software”. Compras que una parte de tu empresa deje de doler.</h2>
+        </header>
+        <div class="cards-grid process-grid">
+          <article class="card reveal"><div class="process-icon">XL</div><h3 class="card-title">Operaciones en Excel</h3><p class="card-text">Web apps con roles, flujos, auditoría y datos centralizados para reemplazar hojas críticas.</p><a href="#contacto" class="card-link">Automatizar mi Excel →</a></article>
+          <article class="card reveal" data-delay="1"><div class="process-icon">WA</div><h3 class="card-title">Atención por WhatsApp</h3><p class="card-text">Agentes IA conectados a tus reglas, base de conocimiento y escalamiento humano.</p><a href="#contacto" class="card-link">Automatizar soporte →</a></article>
+          <article class="card reveal" data-delay="2"><div class="process-icon">ERP</div><h3 class="card-title">Pedidos de campo</h3><p class="card-text">Apps offline para vendedores, sincronización con ERP e inventario en tiempo real.</p><a href="#contacto" class="card-link">Digitalizar pedidos →</a></article>
+          <article class="card reveal" data-delay="3"><div class="process-icon">BI</div><h3 class="card-title">Reportes gerenciales</h3><p class="card-text">Dashboards conectados a ventas, inventario, finanzas y operación. Sin viernes de copiar y pegar.</p><a href="#contacto" class="card-link">Eliminar reportes manuales →</a></article>
+          <article class="card reveal" data-delay="4"><div class="process-icon">API</div><h3 class="card-title">Sistemas desconectados</h3><p class="card-text">Integraciones entre CRM, ERP, bases de datos, formularios y herramientas internas.</p><a href="#contacto" class="card-link">Conectar mi stack →</a></article>
+          <article class="card reveal" data-delay="5"><div class="process-icon">SEC</div><h3 class="card-title">Infraestructura frágil</h3><p class="card-text">Cloud, backups, monitoreo, accesos, logs y despliegues reproducibles para dormir tranquilo.</p><a href="#contacto" class="card-link">Revisar infraestructura →</a></article>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <section class="principles-section section" id="principios" aria-labelledby="principios-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag reveal">Exclusividad real</span>
+          <h2 id="principios-title" class="section-title reveal">No somos para todos. Y eso protege tu proyecto.</h2>
+          <p class="section-sub reveal">La confianza se construye diciendo que no cuando la tecnología no crea ventaja.</p>
+        </header>
+        <div class="principles-grid reveal">
+          <article><strong>No vendemos IA por moda.</strong><span>Si una regla simple resuelve mejor, usamos la regla.</span></article>
+          <article><strong>No iniciamos con consultoría eterna.</strong><span>Primero mapa, luego demo, luego decisión.</span></article>
+          <article><strong>No construimos software para que nadie lo use.</strong><span>El usuario real valida antes de escalar.</span></article>
+          <article><strong>No desaparecemos después del deploy.</strong><span>Producción incluye soporte, monitoreo y mejora.</span></article>
+          <article><strong>No inflamos alcance para parecer enterprise.</strong><span>Priorizamos el flujo que desbloquea valor primero.</span></article>
+          <article><strong>No inventamos credibilidad.</strong><span>Mostramos lo que existe y dejamos claro lo que está en desarrollo.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section section" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag reveal">Lo que preguntan antes de decidir</span>
+          <h2 id="faq-title" class="section-title reveal">Respuestas para tomar una decisión sin humo.</h2>
+        </header>
+        <div class="faq-list reveal">
+          <details><summary>¿Qué pasa si mi empresa no está lista para IA?</summary><p>Perfecto. El diagnóstico precisamente separa automatización simple, integración necesaria e IA útil. No forzamos IA donde no crea ventaja.</p></details>
+          <details><summary>¿El demo funcional reemplaza la planeación?</summary><p>No. La aterriza. Planeamos lo suficiente para construir algo usable y validar con usuarios reales antes de escalar inversión.</p></details>
+          <details><summary>¿Trabajan con sistemas existentes?</summary><p>Sí. La mayoría de operaciones reales mezclan Excel, WhatsApp, CRM, ERP, bases de datos y herramientas internas. El trabajo es hacer que conversen.</p></details>
+          <details><summary>¿Qué tan involucrado debe estar mi equipo?</summary><p>Lo suficiente para mapear reglas, validar pantallas y probar el demo. Tu conocimiento del negocio es parte del sistema; nuestra tarea es traducirlo a software.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container cta-inner">
+        <h2 id="cta-title" class="cta-title reveal">No necesitas otra reunión sobre innovación. Necesitas ver tu proceso funcionando.</h2>
+        <p class="cta-desc reveal">Cuéntanos qué tarea manual le roba tiempo a tu equipo. En 30 minutos te diremos si podemos convertirla en software, qué habría que integrar y cuál sería el primer demo posible.</p>
+        <a href="#contacto" class="btn btn-primary btn-lg sheen reveal">Agendar diagnóstico de 30 min</a>
+        <p class="cta-micro reveal">Si no vemos una forma clara de ayudarte, te lo decimos en la primera llamada.</p>
+      </div>
+    </section>
+
     <section class="contacto section" id="contacto" aria-labelledby="contacto-title">
       <div class="container">
         <header class="section-header">
-          <span class="section-tag reveal">Contacto</span>
-          <h2 id="contacto-title" class="section-title reveal">Hablemos de tu proyecto</h2>
+          <span class="section-tag reveal">Diagnóstico</span>
+          <h2 id="contacto-title" class="section-title reveal">Cuéntanos qué proceso quieres dejar de hacer a mano.</h2>
         </header>
         <div class="contacto-grid">
           <div class="contacto-info">
-            <div class="contacto-item reveal">
-              <span class="contacto-icon" aria-hidden="true">@</span>
-              <div><strong>Email</strong><a href="mailto:contacto@ramossolutions.co">contacto@ramossolutions.co</a></div>
-            </div>
-            <div class="contacto-item reveal">
-              <span class="contacto-icon" aria-hidden="true">#</span>
-              <div><strong>Ubicación</strong><span>Colombia · Remoto worldwide</span></div>
-            </div>
-            <div class="contacto-item reveal">
-              <span class="contacto-icon" aria-hidden="true">↗</span>
-              <div>
-                <strong>Redes</strong>
-                <div class="social-links">
-                  <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                  <a href="#" aria-label="GitHub">GitHub</a>
-                  <a href="#" aria-label="X">X</a>
-                </div>
-              </div>
-            </div>
+            <div class="contacto-item reveal"><span class="contacto-icon" aria-hidden="true">@</span><div><strong>Email</strong><a href="mailto:contacto@ramossolutions.co">contacto@ramossolutions.co</a></div></div>
+            <div class="contacto-item reveal"><span class="contacto-icon" aria-hidden="true">CO</span><div><strong>Base</strong><span>Colombia · Trabajo remoto para LatAm</span></div></div>
+            <div class="contacto-item reveal"><span class="contacto-icon" aria-hidden="true">✓</span><div><strong>Promesa de la primera conversación</strong><span>Claridad sobre viabilidad, integraciones y siguiente demo posible.</span></div></div>
           </div>
-          <form class="contacto-form glass-panel reveal" aria-label="Formulario de contacto" novalidate>
-            <div class="form-group">
-              <label for="nombre">Nombre <span aria-hidden="true" class="required-mark">*</span></label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="name" aria-required="true">
-            </div>
-            <div class="form-group">
-              <label for="email">Email <span aria-hidden="true" class="required-mark">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="tu@email.com" autocomplete="email" aria-required="true">
-            </div>
-            <div class="form-group">
-              <label for="mensaje">¿Qué proceso manual te está consumiendo más tiempo? <span aria-hidden="true" class="required-mark">*</span></label>
-              <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Ej: 'Mi equipo pierde 3 horas diarias copiando datos de Excel a...'" aria-required="true"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full sheen">Enviar mensaje</button>
-            <p class="form-note">Respuesta en 24h. Sin spam.</p>
+          <form class="contacto-form glass-panel reveal" aria-label="Formulario de diagnóstico" action="mailto:contacto@ramossolutions.co" method="post" enctype="text/plain">
+            <div class="form-group"><label for="nombre">Nombre <span aria-hidden="true" class="required-mark">*</span></label><input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="name" aria-required="true"></div>
+            <div class="form-group"><label for="email">Email <span aria-hidden="true" class="required-mark">*</span></label><input type="email" id="email" name="email" required placeholder="tu@email.com" autocomplete="email" aria-required="true"></div>
+            <div class="form-group"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" autocomplete="organization"></div>
+            <div class="form-group"><label for="herramientas">¿Qué herramientas usan hoy?</label><input type="text" id="herramientas" name="herramientas" placeholder="Ej: Excel, WhatsApp, Siigo, Odoo, HubSpot, Drive..."></div>
+            <div class="form-group"><label for="mensaje">¿Qué proceso manual te está consumiendo más tiempo? <span aria-hidden="true" class="required-mark">*</span></label><textarea id="mensaje" name="mensaje" rows="4" required placeholder="Ej: 'Mi equipo pierde 3 horas diarias copiando datos de Excel al CRM...'" aria-required="true"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-full sheen">Enviar proceso para diagnóstico</button>
+            <p class="form-note">Abre tu correo para enviar el caso. Sin spam. Si no somos la mejor opción, te lo diremos.</p>
           </form>
         </div>
       </div>
@@ -488,61 +337,9 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Ramos Solutions S.A.S. Bogotá, Colombia.</p>
-      <p class="footer-love">Hecho con código, café e <span class="gradient-text">IA</span>.</p>
+      <p class="footer-love">Software operativo, automatización e <span class="gradient-text">IA</span> para empresas que quieren subir el estándar.</p>
     </div>
   </footer>
-
-  <!-- MODALS -->
-  <div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
-
-  <div class="modal" id="modal-software" role="dialog" aria-modal="true" aria-labelledby="modal-software-title" aria-hidden="true">
-    <button class="modal__close" aria-label="Cerrar">&times;</button>
-    <h3 id="modal-software-title" class="modal__title">Software que Escala</h3>
-    <p class="modal__text"><strong>El problema:</strong> Un equipo de logística manejaba rutas de entrega en 3 hojas de Excel distintas. Cada semana alguien copiaba y pegaba datos entre ellas. Errores, retratos, clientes insatisfechos.</p>
-    <p class="modal__text"><strong>Lo que construimos:</strong> Un sistema web donde cada conductor ve su ruta en tiempo real, el despachador ajusta con un click, y el cliente recibe notificaciones automáticas. Despliegue en la nube, sin servidores propios.</p>
-    <p class="modal__text"><strong>El resultado:</strong> De 3 horas de coordinación diaria a 15 minutos. Cero hojas de Excel.</p>
-  </div>
-
-  <div class="modal" id="modal-apps" role="dialog" aria-modal="true" aria-labelledby="modal-apps-title" aria-hidden="true">
-    <button class="modal__close" aria-label="Cerrar">&times;</button>
-    <h3 id="modal-apps-title" class="modal__title">Apps que Aman</h3>
-    <p class="modal__text"><strong>El problema:</strong> Los vendedores de campo llevaban pedidos en papel. Al final del día, alguien digitaba todo en el ERP. Pedidos perdidos, datos inconsistentes, inventario desactualizado.</p>
-    <p class="modal__text"><strong>Lo que construimos:</strong> App móvil que escanea productos, toma pedidos offline, y sincroniza con el ERP cuando hay conexión. Funciona sin internet en zonas rurales.</p>
-    <p class="modal__text"><strong>El resultado:</strong> Pedidos en tiempo real. Inventario siempre actualizado. Vendedores que duplicaron su capacidad de atención.</p>
-  </div>
-
-  <div class="modal" id="modal-ia" role="dialog" aria-modal="true" aria-labelledby="modal-ia-title" aria-hidden="true">
-    <button class="modal__close" aria-label="Cerrar">&times;</button>
-    <h3 id="modal-ia-title" class="modal__title">IA que No Duerme</h3>
-    <p class="modal__text"><strong>El problema:</strong> Un call center recibía 500 mensajes diarios por WhatsApp. 3 personas respondían lo mismo todo el día: "¿Cuál es mi saldo?", "¿A qué hora abren?", "¿Cómo cambio mi dirección?"</p>
-    <p class="modal__text"><strong>Lo que construimos:</strong> Un agente de IA conectado a WhatsApp que responde las 200 preguntas más frecuentes al instante. Escalado a humanos solo cuando es necesario.</p>
-    <p class="modal__text"><strong>El resultado:</strong> 70% de mensajes resueltos sin intervención humana. El equipo se enfoca en casos complejos que realmente importan.</p>
-  </div>
-
-  <div class="modal" id="modal-cloud" role="dialog" aria-modal="true" aria-labelledby="modal-cloud-title" aria-hidden="true">
-    <button class="modal__close" aria-label="Cerrar">&times;</button>
-    <h3 id="modal-cloud-title" class="modal__title">Infraestructura Invisible</h3>
-    <p class="modal__text"><strong>El problema:</strong> Servidores en oficina que se apagaban en cortes de luz. Backups que nadie verificaba. Un día falló el disco duro. 3 días sin sistema.</p>
-    <p class="modal__text"><strong>Lo que construimos:</strong> Migración completa a la nube con auto-scaling, backups automáticos, y monitoreo 24/7. Infraestructura como código: todo reproducible en minutos.</p>
-    <p class="modal__text"><strong>El resultado:</strong> Menos operación manual, recuperación más confiable y un equipo de IT que duerme tranquilo.</p>
-  </div>
-
-  <div class="modal" id="modal-bi" role="dialog" aria-modal="true" aria-labelledby="modal-bi-title" aria-hidden="true">
-    <button class="modal__close" aria-label="Cerrar">&times;</button>
-    <h3 id="modal-bi-title" class="modal__title">Visión Total</h3>
-    <p class="modal__text"><strong>El problema:</strong> La gerencia tomaba decisiones basadas en un reporte de Excel que un analista actualizaba cada viernes. Lunes por la mañana, los números ya estaban desactualizados.</p>
-    <p class="modal__text"><strong>Lo que construimos:</strong> Dashboard en tiempo real conectado a ventas, inventario, y atención al cliente. Alertas automáticas cuando una métrica se desvía.</p>
-    <p class="modal__text"><strong>El resultado:</strong> Decisiones basadas en datos de hoy, no de la semana pasada. Alertas que evitan problemas antes de que crezcan.</p>
-  </div>
-
-  <div class="modal" id="modal-security" role="dialog" aria-modal="true" aria-labelledby="modal-security-title" aria-hidden="true">
-    <button class="modal__close" aria-label="Cerrar">&times;</button>
-    <h3 id="modal-security-title" class="modal__title">Protección Real</h3>
-    <p class="modal__text"><strong>El problema:</strong> Una empresa descubrió que alguien había estado accediendo a su base de datos por 6 meses. No lo supieron hasta que un cliente reportó datos incorrectos.</p>
-    <p class="modal__text"><strong>Lo que construimos:</strong> Auditoría de seguridad completa + implementación de autenticación de dos factores, encriptación en tránsito y en reposo, y alertas de accesos anómalos.</p>
-    <p class="modal__text"><strong>El resultado:</strong> Accesos sospechosos detectados en minutos, no en meses. Certificación de cumplimiento lista para auditorías.</p>
-  </div>
-
   <script src="js/main.js" defer></script>
 </body>
 </html>
