@@ -993,3 +993,141 @@ body.modal-open { overflow: hidden; }
 :root { --text-secondary: #cbd5e1; --text-muted: #a7b4c8; }
 .form-group input::placeholder, .form-group textarea::placeholder { color: #8fa1b8; opacity: 1; }
 .section-tag { color: var(--accent-cyan); }
+
+
+/* ========================================
+   MOBILE HERO PUNCH — lightweight operational orbit
+   ======================================== */
+.mobile-hero-visual { display: none; }
+@media (max-width: 767.98px), (pointer: coarse) {
+  .hero {
+    min-height: 100svh;
+    padding-top: calc(var(--header-h) + 0.25rem);
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 50% 24%, rgba(34,211,238,0.22), transparent 30%),
+      radial-gradient(circle at 88% 18%, rgba(168,85,247,0.22), transparent 34%),
+      radial-gradient(circle at 8% 62%, rgba(99,102,241,0.18), transparent 38%),
+      linear-gradient(180deg, #070711 0%, #0a0a0f 48%, #0d0d14 100%);
+  }
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(7,7,17,0.15), rgba(7,7,17,0.62) 72%, rgba(7,7,17,0.86)),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.026) 0 1px, transparent 1px 42px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 42px);
+    mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,0.95) 62%, transparent 100%);
+  }
+  .hero::after {
+    inset: -16% -26% auto -26%;
+    height: 62%;
+    background:
+      radial-gradient(circle at 32% 42%, rgba(34,211,238,0.42) 0 2px, transparent 3px),
+      radial-gradient(circle at 58% 32%, rgba(168,85,247,0.34) 0 1.5px, transparent 2.5px),
+      radial-gradient(circle at 72% 58%, rgba(52,211,153,0.32) 0 1.5px, transparent 2.5px);
+    opacity: 0.88;
+    filter: none;
+    animation: mobile-starfield-drift 13s ease-in-out infinite alternate;
+  }
+  .mobile-hero-visual {
+    display: block;
+    position: absolute;
+    inset: 3.6rem 0 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    contain: layout paint;
+  }
+  .mobile-hero-visual::before,
+  .mobile-hero-visual::after {
+    content: '';
+    position: absolute;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.38), rgba(34,211,238,0.2));
+    opacity: 0.28;
+    transform: translate3d(0,0,0);
+    animation: mobile-aurora-float 9s ease-in-out infinite alternate;
+  }
+  .mobile-hero-visual::before { width: 16rem; height: 16rem; right: -6rem; top: 3rem; }
+  .mobile-hero-visual::after { width: 12rem; height: 12rem; left: -5rem; top: 18rem; animation-delay: -3s; background: linear-gradient(135deg, rgba(168,85,247,0.36), rgba(52,211,153,0.17)); }
+  .mobile-ops-orbit {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(118vw, 470px);
+    height: min(82svh, 610px);
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0.78;
+  }
+  .mobile-ops-orbit__rings { transform-origin: 195px 250px; animation: mobile-orbit-rotate 22s linear infinite; }
+  .mobile-ops-orbit__nodes { transform-origin: 195px 250px; animation: mobile-orbit-breathe 4.8s ease-in-out infinite; }
+  .mobile-data-card {
+    position: absolute;
+    display: grid;
+    gap: 0.18rem;
+    min-width: 8.4rem;
+    padding: 0.68rem 0.78rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(15,23,42,0.72), rgba(15,23,42,0.36));
+    box-shadow: 0 20px 44px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    text-align: left;
+    opacity: 0.62;
+    transform: translate3d(0,0,0);
+    animation: mobile-card-float 6.5s ease-in-out infinite alternate;
+  }
+  .mobile-data-card span {
+    color: #93c5fd;
+    font: 800 0.62rem/1 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .mobile-data-card strong { color: #f8fafc; font-size: 0.82rem; line-height: 1.1; }
+  .mobile-data-card--one { left: -0.3rem; top: 11.4rem; }
+  .mobile-data-card--two { right: -1.15rem; top: 18rem; animation-delay: -2.2s; opacity: 0.52; }
+  .mobile-data-card--three { left: 50%; bottom: 6.4rem; transform: translate3d(-50%,0,0); animation-delay: -4s; opacity: 0.56; }
+  .hero-content {
+    z-index: 3;
+    padding-top: 0.6rem;
+    padding-bottom: 1.4rem;
+  }
+  .hero-badge {
+    background: rgba(10,10,15,0.58);
+    border-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+  }
+  .hero-lead, .hero-proof { text-shadow: 0 2px 18px rgba(0,0,0,0.72); }
+  .hero-actions .btn { min-height: 48px; box-shadow: 0 14px 38px rgba(0,0,0,0.22); }
+}
+@media (max-width: 390px) {
+  .mobile-data-card { min-width: 7.6rem; padding: 0.58rem 0.66rem; }
+  .mobile-data-card--one { left: -1.2rem; top: 10.9rem; }
+  .mobile-data-card--two { right: -1.7rem; top: 17.1rem; }
+  .mobile-data-card--three { bottom: 5.8rem; }
+}
+@keyframes mobile-starfield-drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.62; }
+  to { transform: translate3d(3%, 2%, 0) scale(1.04); opacity: 0.9; }
+}
+@keyframes mobile-aurora-float {
+  from { transform: translate3d(-0.5rem, -0.3rem, 0) scale(0.96); }
+  to { transform: translate3d(0.7rem, 0.9rem, 0) scale(1.05); }
+}
+@keyframes mobile-orbit-rotate { to { transform: rotate(360deg); } }
+@keyframes mobile-orbit-breathe {
+  0%,100% { opacity: 0.78; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.025); }
+}
+@keyframes mobile-card-float {
+  from { translate: 0 -0.24rem; }
+  to { translate: 0 0.34rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-hero-visual::before,
+  .mobile-hero-visual::after,
+  .mobile-ops-orbit__rings,
+  .mobile-ops-orbit__nodes,
+  .mobile-data-card,
+  .hero::after { animation: none !important; }
+  .mobile-ops-orbit__signals { display: none; }
+}
