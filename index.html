@@ -113,6 +113,45 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <canvas id="hero-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="mobile-hero-visual" aria-hidden="true">
+        <svg class="mobile-ops-orbit" viewBox="0 0 390 520" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <defs>
+            <radialGradient id="mob-core" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.36"/>
+              <stop offset="52%" stop-color="#6366f1" stop-opacity="0.16"/>
+              <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="mob-line" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#6366f1"/>
+              <stop offset="52%" stop-color="#a855f7"/>
+              <stop offset="100%" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <rect width="390" height="520" fill="url(#mob-core)" opacity="0.72"/>
+          <g class="mobile-ops-orbit__rings" fill="none" stroke="url(#mob-line)" stroke-linecap="round">
+            <ellipse cx="195" cy="250" rx="138" ry="64" stroke-width="1" opacity="0.34"/>
+            <ellipse cx="195" cy="250" rx="100" ry="152" stroke-width="1" opacity="0.22" transform="rotate(33 195 250)"/>
+            <ellipse cx="195" cy="250" rx="76" ry="188" stroke-width="1" opacity="0.16" transform="rotate(-42 195 250)"/>
+          </g>
+          <g class="mobile-ops-orbit__nodes">
+            <circle cx="195" cy="250" r="34" fill="#0f172a" opacity="0.76"/>
+            <circle cx="195" cy="250" r="31" fill="none" stroke="url(#mob-line)" stroke-width="1.4" opacity="0.9"/>
+            <circle cx="195" cy="250" r="5" fill="#22d3ee" opacity="0.95"/>
+            <circle cx="82" cy="214" r="4" fill="#a855f7" opacity="0.9"/>
+            <circle cx="310" cy="286" r="4" fill="#22d3ee" opacity="0.9"/>
+            <circle cx="150" cy="98" r="3.5" fill="#f8fafc" opacity="0.68"/>
+            <circle cx="250" cy="410" r="3.5" fill="#34d399" opacity="0.75"/>
+          </g>
+          <g class="mobile-ops-orbit__signals" fill="#f8fafc">
+            <circle r="2.5"><animateMotion path="M82 214 C132 162 250 172 310 286" dur="4.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.92;0" dur="4.6s" repeatCount="indefinite"/></circle>
+            <circle r="2"><animateMotion path="M150 98 C238 148 280 260 250 410" dur="5.4s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.8;0" dur="5.4s" begin="-1.6s" repeatCount="indefinite"/></circle>
+            <circle r="2"><animateMotion path="M310 286 C236 342 126 326 82 214" dur="5s" begin="-2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.75;0" dur="5s" begin="-2.8s" repeatCount="indefinite"/></circle>
+          </g>
+        </svg>
+        <div class="mobile-data-card mobile-data-card--one"><span>Excel</span><strong>Datos vivos</strong></div>
+        <div class="mobile-data-card mobile-data-card--two"><span>WhatsApp</span><strong>IA atiende</strong></div>
+        <div class="mobile-data-card mobile-data-card--three"><span>Dashboard</span><strong>Control real</strong></div>
+      </div>
       <div class="hero-map-callout" aria-hidden="true"><span class="hero-map-callout__ring"></span><span class="hero-map-callout__label">Colombia</span></div>
       <div class="container hero-content">
         <div class="hero-badge reveal"><span class="badge-dot" aria-hidden="true"></span><span>Software operativo e IA para empresas que ya se cansaron de improvisar</span></div>
