@@ -1,4 +1,4 @@
-/* Ramos Solution SAS — Main JS v3
+/* Ramos Solution SAS — Main JS v4
    Premium dot-mesh hero, scroll progress, reveal animations, modals
    ======================================== */
 
@@ -160,7 +160,6 @@
         'label[for="mensaje"]': 'Which manual process is consuming the most time? *',
         '.contacto-form button': 'Send process for diagnosis',
         '.form-note': 'Opens your email to send the case. No spam. If we are not the best option, we will tell you.',
-        '.footer-inner p:nth-child(1)': '© 2026 Ramos Solutions S.A.S. Bogotá, Colombia.',
         '.footer-love': 'Operational software, automation and AI for companies that want to raise the standard.'
       },
       attrs: {
@@ -232,6 +231,7 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
+    updateFooterCopyright();
     updateSignalFeedback();
   }
   function initLanguageSwitch() {
@@ -637,9 +637,15 @@
   /* ========================================
      Footer year + Form
      ======================================== */
-  function initYear() {
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  function updateFooterCopyright() {
+    const year = String(new Date().getFullYear());
+    const copy = currentLang === 'es'
+      ? `Derechos de autor © ${year} Ramos Solutions S.A.S. Todos los derechos reservados.`
+      : `Copyright © ${year} Ramos Solutions S.A.S. All rights reserved.`;
+
+    document.querySelectorAll('.footer-copyright').forEach((el) => {
+      el.textContent = copy;
+    });
   }
 
   function initForm() {
@@ -736,7 +742,7 @@
     initReveals();
     initTiltCards();
     initModals();
-    initYear();
+    updateFooterCopyright();
     initForm();
   }
 
