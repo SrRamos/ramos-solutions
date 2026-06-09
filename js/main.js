@@ -8,6 +8,237 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const isMobile = window.matchMedia('(max-width: 767.98px), (pointer: coarse)');
 
+  const i18n = {
+    en: {
+      title: 'Ramos Solutions — Automation, Software and AI in Colombia',
+      description: 'Ramos Solutions turns manual processes into web systems, apps, dashboards and AI agents. Functional demos in weeks for companies in Colombia and LatAm.',
+      html: {
+        '#hero-title': 'Stop running your company with <span class="gradient-text sweep">Excel, WhatsApp and memory.</span>',
+        '.hero-proof': '<strong>Functional demo in 3 weeks.</strong> With your real process. No endless PowerPoint.',
+        '.footer-love': 'Operational software, automation and <span class="gradient-text">AI</span> for companies that want to raise the standard.'
+      },
+      selectors: {
+        '.skip-link': 'Skip to content',
+        '.nav-list li:nth-child(1) a': 'Problems',
+        '.nav-list li:nth-child(2) a': '3-week method',
+        '.nav-list li:nth-child(3) a': 'Cases',
+        '.nav-list li:nth-child(4) a': 'Processes',
+        '.nav-list li:nth-child(5) a': 'What we don’t do',
+        '.nav-list li:nth-child(6) a': 'Diagnosis',
+        '.hero-badge span:nth-child(2)': 'Operational software and AI for companies tired of improvising',
+        '#hero-title': 'Stop running your company with Excel, WhatsApp and memory.',
+        '.hero-lead': 'Ramos Solutions turns manual processes into web systems, apps, dashboards and AI agents your team can test in weeks, not months.',
+        '.hero-proof': 'Functional demo in 3 weeks. With your real process. No endless PowerPoint.',
+        '.hero-actions .btn:nth-child(1)': 'Book a 30-min diagnosis',
+        '.hero-actions .btn:nth-child(2)': 'See real cases',
+        '.hero-trust span:nth-child(1)': 'Colombia · LatAm',
+        '.hero-trust span:nth-child(2)': 'Software + AI + Integrations',
+        '.hero-trust span:nth-child(3)': 'Demo before scaling',
+        '.mobile-data-card--one strong': 'Live data',
+        '.mobile-data-card--two strong': 'AI handles it',
+        '.mobile-data-card--three strong': 'Real control',
+        '#problemas .section-tag': 'The signal',
+        '#pain-title': 'You do not need “digital transformation”. You need to stop repeating the same work by hand.',
+        '#problemas .section-sub': 'The need appears when the business grows, but operations still depend on people chasing data.',
+        '.symptom-card:nth-child(1) h3': 'The report depends on one person',
+        '.symptom-card:nth-child(1) p': 'If someone is out, nobody knows what sold, what is missing or which customer is waiting.',
+        '.symptom-card:nth-child(2) h3': 'WhatsApp is your operating system',
+        '.symptom-card:nth-child(2) p': 'Orders, support, approvals and complaints live in chats that are impossible to audit.',
+        '.symptom-card:nth-child(3) h3': 'Every team has “their Excel”',
+        '.symptom-card:nth-child(3) p': 'Sales, operations and leadership look at different numbers and debate which one is real.',
+        '.symptom-card:nth-child(4) h3': 'Your team knows what to do, but the system does not',
+        '.symptom-card:nth-child(4) p': 'Business rules live in the heads of key people, not in a platform.',
+        '.symptom-card:nth-child(5) h3': 'AI became conversation, not outcome',
+        '.symptom-card:nth-child(5) p': 'There are beautiful demos, but nothing connected to your data, roles, approvals and exceptions.',
+        '.symptom-card:nth-child(6) h3': 'If you checked two, there is an opportunity',
+        '.symptom-card:nth-child(6) p': 'That is the new standard: turning operational friction into software that works with you.',
+        '.symptom-card:nth-child(6) a': 'Find what to automate',
+        '#transformacion .section-tag': 'The transformation',
+        '#diagram-title': 'From operational chaos to a flow everyone wants to follow.',
+        '#transformacion .section-sub': 'We do not sell technology because it is trendy. We design the system that makes your operation visible, measurable and repeatable.',
+        '.transform-column--before .transform-label': 'Before',
+        '.transform-column--before h3': 'Scattered data. Slow decisions.',
+        '.transform-column--before li:nth-child(1)': 'Excel, chats, emails and CRM disconnected.',
+        '.transform-column--before li:nth-child(2)': 'Manual reports that arrive late.',
+        '.transform-column--before li:nth-child(3)': 'Errors that are hard to trace.',
+        '.transform-column--before li:nth-child(4)': 'Leadership asking “where does this stand?”.',
+        '.transform-core text': 'Rules + data + AI when useful',
+        '.transform-column--after .transform-label': 'After',
+        '.transform-column--after h3': 'One flow. Visible control.',
+        '.transform-column--after li:nth-child(1)': 'Clear inputs: WhatsApp, CRM, ERP, forms.',
+        '.transform-column--after li:nth-child(2)': 'Rules, owners and automatic alerts.',
+        '.transform-column--after li:nth-child(3)': 'Dashboards with current data.',
+        '.transform-column--after li:nth-child(4)': 'AI integrated only where it creates real advantage.',
+        '#metodo .section-tag': '3-week method',
+        '#proceso-title': 'Test it first. Then decide whether to scale.',
+        '#metodo .section-sub': 'The exclusivity is not in sounding smart. It is in reducing risk before asking for a major investment.',
+        '.method-timeline article:nth-child(1) span': 'Day 1–3',
+        '.method-timeline article:nth-child(1) h3': 'Process map',
+        '.method-timeline article:nth-child(1) p': 'We see who does what, where data gets lost and which manual task is costing reputation, time or money.',
+        '.method-timeline article:nth-child(2) span': 'Week 1',
+        '.method-timeline article:nth-child(2) h3': 'Flow design',
+        '.method-timeline article:nth-child(2) p': 'We define screens, rules, integrations, permissions and the points where AI actually helps.',
+        '.method-timeline article:nth-child(3) span': 'Week 2–3',
+        '.method-timeline article:nth-child(3) h3': 'Functional demo',
+        '.method-timeline article:nth-child(3) p': 'We build something usable so your team can touch it, critique it and validate it. It is not a presentation.',
+        '.method-timeline article:nth-child(4) span': 'Then',
+        '.method-timeline article:nth-child(4) h3': 'Production with control',
+        '.method-timeline article:nth-child(4) p': 'Cloud, security, roles, monitoring, support and improvements to turn the demo into a real system.',
+        '#casos .section-tag': 'Real proof',
+        '#projects-title': 'What builds trust is not promising. It is building.',
+        '#casos .section-sub': 'We show real products and real states. No invented logos. No fictional testimonials.',
+        '.project-card__label': 'Marketplace + Ticketing + QR Access Control',
+        '.project-card__desc': 'Platform to organize events in Colombia and Latin America: discovery, digital ticketing, QR access control and sales dashboard.',
+        '.project-facts li:nth-child(1)': 'Public product: konvoka.co',
+        '.project-facts li:nth-child(2)': 'Complete flow: publishing, purchase, ticket and validation.',
+        '.project-facts li:nth-child(3)': 'Proof that Ramos Solutions builds product, not just talk.',
+        '.project-card__link': 'Visit konvoka.co ↗',
+        '.lab-card .project-card__label': 'In the lab',
+        '#lab-title': 'Signal & Grain',
+        '.lab-card p': 'Private product in development. We show it as a real pipeline, not as a finished case. More details when it is ready for public validation.',
+        '#procesos .section-tag': 'Processes we automate',
+        '#servicios-title': 'You do not buy “software”. You buy relief for a painful part of your company.',
+        '.process-grid .card:nth-child(1) h3': 'Excel operations',
+        '.process-grid .card:nth-child(1) p': 'Web apps with roles, flows, audit trails and centralized data to replace critical spreadsheets.',
+        '.process-grid .card:nth-child(1) a': 'Automate my Excel →',
+        '.process-grid .card:nth-child(2) h3': 'WhatsApp support',
+        '.process-grid .card:nth-child(2) p': 'AI agents connected to your rules, knowledge base and human escalation.',
+        '.process-grid .card:nth-child(2) a': 'Automate support →',
+        '.process-grid .card:nth-child(3) h3': 'Field orders',
+        '.process-grid .card:nth-child(3) p': 'Offline apps for sales reps, ERP sync and real-time inventory.',
+        '.process-grid .card:nth-child(3) a': 'Digitize orders →',
+        '.process-grid .card:nth-child(4) h3': 'Management reports',
+        '.process-grid .card:nth-child(4) p': 'Dashboards connected to sales, inventory, finance and operations. No Friday copy-paste.',
+        '.process-grid .card:nth-child(4) a': 'Eliminate manual reports →',
+        '.process-grid .card:nth-child(5) h3': 'Disconnected systems',
+        '.process-grid .card:nth-child(5) p': 'Integrations between CRM, ERP, databases, forms and internal tools.',
+        '.process-grid .card:nth-child(5) a': 'Connect my stack →',
+        '.process-grid .card:nth-child(6) h3': 'Fragile infrastructure',
+        '.process-grid .card:nth-child(6) p': 'Cloud, backups, monitoring, access, logs and reproducible deployments so you can sleep better.',
+        '.process-grid .card:nth-child(6) a': 'Review infrastructure →',
+        '#principios .section-tag': 'Real exclusivity',
+        '#principios-title': 'We are not for everyone. And that protects your project.',
+        '#principios .section-sub': 'Trust is built by saying no when technology does not create advantage.',
+        '.principles-grid article:nth-child(1) strong': 'We do not sell AI because it is trendy.',
+        '.principles-grid article:nth-child(1) span': 'If a simple rule solves it better, we use the rule.',
+        '.principles-grid article:nth-child(2) strong': 'We do not start with endless consulting.',
+        '.principles-grid article:nth-child(2) span': 'First map, then demo, then decision.',
+        '.principles-grid article:nth-child(3) strong': 'We do not build software nobody uses.',
+        '.principles-grid article:nth-child(3) span': 'The real user validates before scaling.',
+        '.principles-grid article:nth-child(4) strong': 'We do not disappear after deploy.',
+        '.principles-grid article:nth-child(4) span': 'Production includes support, monitoring and improvement.',
+        '.principles-grid article:nth-child(5) strong': 'We do not inflate scope to look enterprise.',
+        '.principles-grid article:nth-child(5) span': 'We prioritize the flow that unlocks value first.',
+        '.principles-grid article:nth-child(6) strong': 'We do not invent credibility.',
+        '.principles-grid article:nth-child(6) span': 'We show what exists and clarify what is in development.',
+        '.faq-section .section-tag': 'What people ask before deciding',
+        '#faq-title': 'Answers to decide without smoke.',
+        '.faq-list details:nth-child(1) summary': 'What if my company is not ready for AI?',
+        '.faq-list details:nth-child(1) p': 'Perfect. The diagnosis separates simple automation, necessary integration and useful AI. We do not force AI where it creates no advantage.',
+        '.faq-list details:nth-child(2) summary': 'Does the functional demo replace planning?',
+        '.faq-list details:nth-child(2) p': 'No. It grounds planning. We plan enough to build something usable and validate with real users before scaling investment.',
+        '.faq-list details:nth-child(3) summary': 'Do you work with existing systems?',
+        '.faq-list details:nth-child(3) p': 'Yes. Most real operations mix Excel, WhatsApp, CRM, ERP, databases and internal tools. The work is making them talk to each other.',
+        '.faq-list details:nth-child(4) summary': 'How involved does my team need to be?',
+        '.faq-list details:nth-child(4) p': 'Enough to map rules, validate screens and test the demo. Your business knowledge is part of the system; our job is translating it into software.',
+        '#cta-title': 'You do not need another meeting about innovation. You need to see your process working.',
+        '.cta-desc': 'Tell us which manual task steals time from your team. In 30 minutes we will tell you whether we can turn it into software, what needs to be integrated and what the first demo could be.',
+        '.cta-section .btn': 'Book a 30-min diagnosis',
+        '.cta-micro': 'If we do not see a clear way to help, we will say it on the first call.',
+        '#contacto .section-tag': 'Diagnosis',
+        '#contacto-title': 'Tell us which process you want to stop doing by hand.',
+        '.contacto-item:nth-child(1) strong': 'Email',
+        '.contacto-item:nth-child(2) strong': 'Base',
+        '.contacto-item:nth-child(2) span:nth-child(2)': 'Colombia · Remote work for LatAm',
+        '.contacto-item:nth-child(3) strong': 'First conversation promise',
+        '.contacto-item:nth-child(3) span:nth-child(2)': 'Clarity on viability, integrations and the next possible demo.',
+        'label[for="nombre"]': 'Name *',
+        'label[for="email"]': 'Email *',
+        'label[for="empresa"]': 'Company',
+        'label[for="herramientas"]': 'What tools do you use today?',
+        'label[for="mensaje"]': 'Which manual process is consuming the most time? *',
+        '.contacto-form button': 'Send process for diagnosis',
+        '.form-note': 'Opens your email to send the case. No spam. If we are not the best option, we will tell you.',
+        '.footer-inner p:nth-child(1)': '© 2026 Ramos Solutions S.A.S. Bogotá, Colombia.',
+        '.footer-love': 'Operational software, automation and AI for companies that want to raise the standard.'
+      },
+      attrs: {
+        '.menu-toggle': { 'aria-label': 'Open menu' },
+        '#primary-nav': { 'aria-label': 'Primary navigation' },
+        '.logo': { 'aria-label': 'Ramos Solutions — Home' },
+        '.hero-trust': { 'aria-label': 'Trust signals' },
+        '.contacto-form': { 'aria-label': 'Diagnosis form' },
+        '#nombre': { placeholder: 'Your name', name: 'name' },
+        '#empresa': { placeholder: 'Your company name', name: 'company' },
+        '#herramientas': { placeholder: 'E.g. Excel, WhatsApp, Siigo, Odoo, HubSpot, Drive...', name: 'tools' },
+        '#mensaje': { placeholder: "E.g. 'My team loses 3 hours a day copying data from Excel to the CRM...'", name: 'message' }
+      }
+    },
+    es: {
+      title: 'Ramos Solutions — Automatización, Software e IA en Colombia',
+      description: 'Ramos Solutions convierte procesos manuales en sistemas web, apps, dashboards y agentes de IA. Demo funcional en semanas para empresas en Colombia y LatAm.',
+      html: {},
+      selectors: {
+        '.skip-link': 'Saltar al contenido', '.nav-list li:nth-child(1) a': 'Problemas', '.nav-list li:nth-child(2) a': 'Método 3 semanas', '.nav-list li:nth-child(3) a': 'Casos', '.nav-list li:nth-child(4) a': 'Procesos', '.nav-list li:nth-child(5) a': 'Qué no hacemos', '.nav-list li:nth-child(6) a': 'Diagnóstico',
+        '.hero-badge span:nth-child(2)': 'Software operativo e IA para empresas que ya se cansaron de improvisar', '#hero-title': 'Deja de operar tu empresa a punta de Excel, WhatsApp y memoria.', '.hero-lead': 'Ramos Solutions convierte procesos manuales en sistemas web, apps, dashboards y agentes de IA que tu equipo puede probar en semanas, no en meses.', '.hero-proof': 'Demo funcional en 3 semanas. Con tu proceso real. Sin PowerPoint eterno.', '.hero-actions .btn:nth-child(1)': 'Agendar diagnóstico de 30 min', '.hero-actions .btn:nth-child(2)': 'Ver casos reales',
+        '#pain-title': 'No necesitas “transformación digital”. Necesitas dejar de repetir lo mismo a mano.', '#problemas .section-sub': 'La necesidad aparece cuando el negocio crece, pero la operación sigue dependiendo de personas persiguiendo datos.', '.symptom-card:nth-child(6) a': 'Encontrar qué automatizar',
+        '#diagram-title': 'Del caos operativo a un flujo que todos quieren seguir.', '#proceso-title': 'Primero lo pruebas. Luego decides si escala.', '#projects-title': 'Lo que genera confianza no es prometer. Es construir.', '#servicios-title': 'No compras “software”. Compras que una parte de tu empresa deje de doler.', '#principios-title': 'No somos para todos. Y eso protege tu proyecto.', '#faq-title': 'Respuestas para tomar una decisión sin humo.', '#cta-title': 'No necesitas otra reunión sobre innovación. Necesitas ver tu proceso funcionando.', '#contacto-title': 'Cuéntanos qué proceso quieres dejar de hacer a mano.', '.cta-section .btn': 'Agendar diagnóstico de 30 min', '.footer-love': 'Software operativo, automatización e IA para empresas que quieren subir el estándar.'
+      },
+      attrs: { '.menu-toggle': { 'aria-label': 'Abrir menú' }, '#primary-nav': { 'aria-label': 'Navegación principal' }, '.logo': { 'aria-label': 'Ramos Solutions — Inicio' }, '.hero-trust': { 'aria-label': 'Señales de confianza' }, '.contacto-form': { 'aria-label': 'Formulario de diagnóstico' }, '#nombre': { placeholder: 'Tu nombre', name: 'nombre' }, '#empresa': { placeholder: 'Nombre de tu empresa', name: 'empresa' }, '#herramientas': { placeholder: 'Ej: Excel, WhatsApp, Siigo, Odoo, HubSpot, Drive...', name: 'herramientas' }, '#mensaje': { placeholder: "Ej: 'Mi equipo pierde 3 horas diarias copiando datos de Excel al CRM...'", name: 'mensaje' } }
+    }
+  };
+  let currentLang = 'en';
+  let originalText = {};
+  let originalHtml = {};
+  let originalAttrs = {};
+  function captureOriginalLanguage() {
+    const selectors = new Set(Object.keys(i18n.en.selectors));
+    Object.keys(i18n.en.html || {}).forEach(selector => selectors.add(selector));
+    selectors.forEach(selector => {
+      const el = document.querySelector(selector);
+      if (el) { originalText[selector] = el.textContent; originalHtml[selector] = el.innerHTML; }
+    });
+    Object.keys(i18n.en.attrs || {}).forEach(selector => {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      originalAttrs[selector] = {};
+      Object.keys(i18n.en.attrs[selector]).forEach(name => originalAttrs[selector][name] = el.getAttribute(name) || '');
+    });
+  }
+  function applyLanguage(lang) {
+    currentLang = lang === 'es' ? 'es' : 'en';
+    const dict = i18n[currentLang];
+    document.documentElement.lang = currentLang === 'es' ? 'es-CO' : 'en-US';
+    document.title = dict.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', dict.description);
+    const sourceSelectors = currentLang === 'es' ? i18n.en.selectors : dict.selectors;
+    Object.keys(sourceSelectors).forEach((selector) => {
+      const text = dict.selectors[selector] ?? originalText[selector];
+      if (typeof text !== 'undefined') document.querySelectorAll(selector).forEach(el => { el.textContent = text; });
+    });
+    const sourceHtml = currentLang === 'es' ? i18n.en.html : (dict.html || {});
+    Object.keys(sourceHtml || {}).forEach((selector) => {
+      const html = (dict.html || {})[selector] ?? originalHtml[selector];
+      if (typeof html !== 'undefined') document.querySelectorAll(selector).forEach(el => { el.innerHTML = html; });
+    });
+    const sourceAttrs = currentLang === 'es' ? i18n.en.attrs : (dict.attrs || {});
+    Object.keys(sourceAttrs || {}).forEach((selector) => {
+      const attrs = (dict.attrs || {})[selector] || originalAttrs[selector] || {};
+      document.querySelectorAll(selector).forEach(el => Object.entries(attrs).forEach(([name, value]) => el.setAttribute(name, value)));
+    });
+    document.querySelectorAll('.language-switch__button').forEach(button => {
+      const active = button.dataset.lang === currentLang;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  }
+  function initLanguageSwitch() {
+    captureOriginalLanguage();
+    document.querySelectorAll('.language-switch__button').forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+    applyLanguage('en');
+  }
+
+
   /* ========================================
      Hero Canvas — Interactive World Light Map
      ======================================== */
@@ -269,6 +500,7 @@
     function toggleMenu(open) {
       const isOpen = open ?? !primaryNav?.classList.contains('open');
       menuToggle?.setAttribute('aria-expanded', String(isOpen));
+      menuToggle?.setAttribute('aria-label', isOpen ? (currentLang === 'es' ? 'Cerrar menú' : 'Close menu') : (currentLang === 'es' ? 'Abrir menú' : 'Open menu'));
       primaryNav?.classList.toggle('open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     }
@@ -370,8 +602,8 @@
       e.preventDefault();
 
       const data = new FormData(form);
-      const subject = encodeURIComponent('Diagnóstico Ramos Solutions — proceso manual');
-      const body = encodeURIComponent([
+      const subject = encodeURIComponent(currentLang === 'es' ? 'Diagnóstico Ramos Solutions — proceso manual' : 'Ramos Solutions diagnosis — manual process');
+      const body = encodeURIComponent((currentLang === 'es' ? [
         'Nombre: ' + (data.get('nombre') || ''),
         'Email: ' + (data.get('email') || ''),
         'Empresa: ' + (data.get('empresa') || ''),
@@ -379,7 +611,15 @@
         '',
         'Proceso manual a diagnosticar:',
         data.get('mensaje') || ''
-      ].join('\n'));
+      ] : [
+        'Name: ' + (data.get('name') || ''),
+        'Email: ' + (data.get('email') || ''),
+        'Company: ' + (data.get('company') || ''),
+        'Current tools: ' + (data.get('tools') || ''),
+        '',
+        'Manual process to diagnose:',
+        data.get('message') || ''
+      ]).join('\n'));
 
       window.location.href = 'mailto:contacto@ramossolutions.co?subject=' + subject + '&body=' + body;
     });
@@ -438,6 +678,7 @@
      Initialize all
      ======================================== */
   function init() {
+    initLanguageSwitch();
     initHeroCanvas();
     initScrollProgress();
     initHeader();
