@@ -57,6 +57,43 @@
     ]
   }
   </script>
+
+  <script>
+    window.RAMOS_ANALYTICS_CONFIG = {
+      ga4MeasurementId: 'G-RAMOS_SOLUTIONS_PLACEHOLDER',
+      clarityProjectId: 'CLARITY_RAMOS_SOLUTIONS_PLACEHOLDER'
+    };
+
+    (function initAnalytics(config) {
+      if (!config) return;
+
+      var ga4Id = config.ga4MeasurementId || '';
+      var clarityId = config.clarityProjectId || '';
+      var isPlaceholder = function (value) {
+        return !value || value.indexOf('PLACEHOLDER') !== -1 || value === 'G-XXXXXXXXXX';
+      };
+
+      if (!isPlaceholder(ga4Id)) {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4Id);
+        document.head.appendChild(gaScript);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', ga4Id, { anonymize_ip: true });
+      }
+
+      if (!isPlaceholder(clarityId)) {
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, 'clarity', 'script', clarityId);
+      }
+    })(window.RAMOS_ANALYTICS_CONFIG);
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Saltar al contenido</a>
