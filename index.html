@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 
   <script type="application/ld+json">
   {
@@ -214,15 +214,20 @@
         <header class="section-header">
           <span class="section-tag reveal">La señal</span>
           <h2 id="pain-title" class="section-title reveal">No necesitas “transformación digital”. Necesitas dejar de repetir lo mismo a mano.</h2>
-          <p class="section-sub reveal">La necesidad aparece cuando el negocio crece, pero la operación sigue dependiendo de personas persiguiendo datos.</p>
+          <p class="section-sub reveal">Selecciona los escenarios que ya pasan en tu operación. Te devolvemos una lectura inmediata de qué conviene automatizar primero.</p>
         </header>
-        <div class="symptom-grid reveal">
-          <article class="symptom-card"><span>01</span><h3>El reporte depende de una persona</h3><p>Si alguien falta, nadie sabe qué vendió, qué falta o qué cliente está esperando.</p></article>
-          <article class="symptom-card"><span>02</span><h3>WhatsApp es tu sistema operativo</h3><p>Pedidos, soporte, aprobaciones y reclamos viven en chats imposibles de auditar.</p></article>
-          <article class="symptom-card"><span>03</span><h3>Cada área tiene “su Excel”</h3><p>Ventas, operación y gerencia miran números distintos y discuten cuál es el real.</p></article>
-          <article class="symptom-card"><span>04</span><h3>Tu equipo sabe qué hacer, pero el sistema no</h3><p>Las reglas del negocio están en la cabeza de personas clave, no en una plataforma.</p></article>
-          <article class="symptom-card"><span>05</span><h3>La IA se volvió conversación, no resultado</h3><p>Hay demos bonitas, pero nada conectado a tus datos, roles, aprobaciones y excepciones.</p></article>
-          <article class="symptom-card symptom-card--cta"><span>→</span><h3>Si marcaste dos, hay oportunidad</h3><p>Ahí está el nuevo estándar: convertir fricción operativa en software que trabaja contigo.</p><a href="#contacto">Encontrar qué automatizar</a></article>
+        <div class="symptom-grid reveal" role="group" aria-labelledby="pain-title" aria-describedby="signal-feedback-copy">
+          <article class="symptom-card" data-symptom-card="report"><button type="button" class="symptom-card__control" data-symptom="report" aria-pressed="false" aria-labelledby="signal-report-title" aria-describedby="signal-report-copy"></button><span>01</span><h3 id="signal-report-title">El reporte depende de una persona</h3><p id="signal-report-copy">Si alguien falta, nadie sabe qué vendió, qué falta o qué cliente está esperando.</p></article>
+          <article class="symptom-card" data-symptom-card="whatsapp"><button type="button" class="symptom-card__control" data-symptom="whatsapp" aria-pressed="false" aria-labelledby="signal-whatsapp-title" aria-describedby="signal-whatsapp-copy"></button><span>02</span><h3 id="signal-whatsapp-title">WhatsApp es tu sistema operativo</h3><p id="signal-whatsapp-copy">Pedidos, soporte, aprobaciones y reclamos viven en chats imposibles de auditar.</p></article>
+          <article class="symptom-card" data-symptom-card="excel"><button type="button" class="symptom-card__control" data-symptom="excel" aria-pressed="false" aria-labelledby="signal-excel-title" aria-describedby="signal-excel-copy"></button><span>03</span><h3 id="signal-excel-title">Cada área tiene “su Excel”</h3><p id="signal-excel-copy">Ventas, operación y gerencia miran números distintos y discuten cuál es el real.</p></article>
+          <article class="symptom-card" data-symptom-card="rules"><button type="button" class="symptom-card__control" data-symptom="rules" aria-pressed="false" aria-labelledby="signal-rules-title" aria-describedby="signal-rules-copy"></button><span>04</span><h3 id="signal-rules-title">Tu equipo sabe qué hacer, pero el sistema no</h3><p id="signal-rules-copy">Las reglas del negocio están en la cabeza de personas clave, no en una plataforma.</p></article>
+          <article class="symptom-card" data-symptom-card="ai"><button type="button" class="symptom-card__control" data-symptom="ai" aria-pressed="false" aria-labelledby="signal-ai-title" aria-describedby="signal-ai-copy"></button><span>05</span><h3 id="signal-ai-title">La IA se volvió conversación, no resultado</h3><p id="signal-ai-copy">Hay demos bonitas, pero nada conectado a tus datos, roles, aprobaciones y excepciones.</p></article>
+          <article class="symptom-card symptom-card--feedback" aria-live="polite" aria-atomic="true">
+            <span id="signal-feedback-count">0 señales</span>
+            <h3 id="signal-feedback-title">Marca lo que te aplica</h3>
+            <p id="signal-feedback-copy">Cada selección afina el diagnóstico. Con dos o más señales, normalmente ya hay un proceso candidato para demo funcional.</p>
+            <a id="signal-feedback-link" href="#contacto">Seleccionar y encontrar qué automatizar</a>
+          </article>
         </div>
       </div>
     </section>
@@ -420,6 +425,6 @@
       <p class="footer-love">Software operativo, automatización e <span class="gradient-text">IA</span> para empresas que quieren subir el estándar.</p>
     </div>
   </footer>
-  <script src="js/main.js?v=2" defer></script>
+  <script src="js/main.js?v=3" defer></script>
 </body>
 </html>
