@@ -39,7 +39,7 @@
         '.mobile-data-card--three strong': 'Real control',
         '#problemas .section-tag': 'The signal',
         '#pain-title': 'You do not need “digital transformation”. You need to stop repeating the same work by hand.',
-        '#problemas .section-sub': 'The need appears when the business grows, but operations still depend on people chasing data.',
+        '#problemas .section-sub': 'Select the scenarios that already happen inside your operation. You will get instant feedback on what to automate first.',
         '.symptom-card:nth-child(1) h3': 'The report depends on one person',
         '.symptom-card:nth-child(1) p': 'If someone is out, nobody knows what sold, what is missing or which customer is waiting.',
         '.symptom-card:nth-child(2) h3': 'WhatsApp is your operating system',
@@ -50,9 +50,10 @@
         '.symptom-card:nth-child(4) p': 'Business rules live in the heads of key people, not in a platform.',
         '.symptom-card:nth-child(5) h3': 'AI became conversation, not outcome',
         '.symptom-card:nth-child(5) p': 'There are beautiful demos, but nothing connected to your data, roles, approvals and exceptions.',
-        '.symptom-card:nth-child(6) h3': 'If you checked two, there is an opportunity',
-        '.symptom-card:nth-child(6) p': 'That is the new standard: turning operational friction into software that works with you.',
-        '.symptom-card:nth-child(6) a': 'Find what to automate',
+        '#signal-feedback-count': '0 signals',
+        '#signal-feedback-title': 'Choose what applies to you',
+        '#signal-feedback-copy': 'Each selection sharpens the diagnosis. With two or more signals, there is usually a process ready for a functional demo.',
+        '#signal-feedback-link': 'Select and find what to automate',
         '#transformacion .section-tag': 'The transformation',
         '#diagram-title': 'From operational chaos to a flow everyone wants to follow.',
         '#transformacion .section-sub': 'We do not sell technology because it is trendy. We design the system that makes your operation visible, measurable and repeatable.',
@@ -181,7 +182,7 @@
       selectors: {
         '.skip-link': 'Saltar al contenido', '.nav-list li:nth-child(1) a': 'Problemas', '.nav-list li:nth-child(2) a': 'Método 3 semanas', '.nav-list li:nth-child(3) a': 'Casos', '.nav-list li:nth-child(4) a': 'Procesos', '.nav-list li:nth-child(5) a': 'Qué no hacemos', '.nav-list li:nth-child(6) a': 'Diagnóstico',
         '.hero-badge span:nth-child(2)': 'Software operativo e IA para empresas que ya se cansaron de improvisar', '#hero-title': 'Deja de operar tu empresa a punta de Excel, WhatsApp y memoria.', '.hero-lead': 'Ramos Solutions convierte procesos manuales en sistemas web, apps, dashboards y agentes de IA que tu equipo puede probar en semanas, no en meses.', '.hero-proof': 'Demo funcional en 3 semanas. Con tu proceso real. Sin PowerPoint eterno.', '.hero-actions .btn:nth-child(1)': 'Agendar diagnóstico de 30 min', '.hero-actions .btn:nth-child(2)': 'Ver casos reales',
-        '#pain-title': 'No necesitas “transformación digital”. Necesitas dejar de repetir lo mismo a mano.', '#problemas .section-sub': 'La necesidad aparece cuando el negocio crece, pero la operación sigue dependiendo de personas persiguiendo datos.', '.symptom-card:nth-child(6) a': 'Encontrar qué automatizar',
+        '#pain-title': 'No necesitas “transformación digital”. Necesitas dejar de repetir lo mismo a mano.', '#problemas .section-sub': 'Selecciona los escenarios que ya pasan en tu operación. Te devolvemos una lectura inmediata de qué conviene automatizar primero.', '#signal-feedback-link': 'Seleccionar y encontrar qué automatizar',
         '#diagram-title': 'Del caos operativo a un flujo que todos quieren seguir.', '#proceso-title': 'Primero lo pruebas. Luego decides si escala.', '#projects-title': 'Lo que genera confianza no es prometer. Es construir.', '#servicios-title': 'No compras “software”. Compras que una parte de tu empresa deje de doler.', '#principios-title': 'No somos para todos. Y eso protege tu proyecto.', '#faq-title': 'Respuestas para tomar una decisión sin humo.', '#cta-title': 'No necesitas otra reunión sobre innovación. Necesitas ver tu proceso funcionando.', '#contacto-title': 'Cuéntanos qué proceso quieres dejar de hacer a mano.', '.cta-section .btn': 'Agendar diagnóstico de 30 min', '.footer-love': 'Software operativo, automatización e IA para empresas que quieren subir el estándar.'
       },
       attrs: { '.menu-toggle': { 'aria-label': 'Abrir menú' }, '#primary-nav': { 'aria-label': 'Navegación principal' }, '.logo': { 'aria-label': 'Ramos Solutions — Inicio' }, '.hero-trust': { 'aria-label': 'Señales de confianza' }, '.contacto-form': { 'aria-label': 'Formulario de diagnóstico' }, '#nombre': { placeholder: 'Tu nombre', name: 'nombre' }, '#empresa': { placeholder: 'Nombre de tu empresa', name: 'empresa' }, '#herramientas': { placeholder: 'Ej: Excel, WhatsApp, Siigo, Odoo, HubSpot, Drive...', name: 'herramientas' }, '#mensaje': { placeholder: "Ej: 'Mi equipo pierde 3 horas diarias copiando datos de Excel al CRM...'", name: 'mensaje' } }
@@ -231,11 +232,59 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
+    updateSignalFeedback();
   }
   function initLanguageSwitch() {
     captureOriginalLanguage();
     document.querySelectorAll('.language-switch__button').forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
     applyLanguage('en');
+  }
+
+  const signalFeedbackCopy = {
+    en: {
+      zero: ['0 signals', 'Choose what applies to you', 'Each selection sharpens the diagnosis. With two or more signals, there is usually a process ready for a functional demo.', 'Select and find what to automate'],
+      one: ['1 signal', 'There is already operational friction', 'Good first sign. Pick any other scenario that also happens so we can see whether the pain is isolated or systemic.', 'Keep selecting what applies'],
+      two: ['2 signals', 'You have a clear automation candidate', 'This is usually where a functional demo makes sense: one flow, real data, visible owners and fewer manual handoffs.', 'Map my first process'],
+      many: ['{n} signals', 'This is no longer noise. It is a system gap.', 'Multiple signals mean the business is depending on people to hold together reports, rules, chats and data. The first move is choosing the flow that hurts reputation, time or cash the most.', 'Prioritize my process']
+    },
+    es: {
+      zero: ['0 señales', 'Marca lo que te aplica', 'Cada selección afina el diagnóstico. Con dos o más señales, normalmente ya hay un proceso candidato para demo funcional.', 'Seleccionar y encontrar qué automatizar'],
+      one: ['1 señal', 'Ya hay fricción operativa', 'Buena primera señal. Marca cualquier otro escenario que también ocurra para ver si el dolor es aislado o sistémico.', 'Seguir seleccionando lo que aplica'],
+      two: ['2 señales', 'Ya tienes un candidato claro para automatizar', 'Aquí normalmente tiene sentido un demo funcional: un flujo, datos reales, responsables visibles y menos pasos manuales.', 'Mapear mi primer proceso'],
+      many: ['{n} señales', 'Esto ya no es ruido. Es una brecha de sistema.', 'Varias señales indican que el negocio depende de personas sosteniendo reportes, reglas, chats y datos. El primer movimiento es escoger el flujo que más duele en reputación, tiempo o caja.', 'Priorizar mi proceso']
+    }
+  };
+
+  function updateSignalFeedback() {
+    const selected = document.querySelectorAll('.symptom-card__control[data-symptom][aria-pressed="true"]').length;
+    const dict = signalFeedbackCopy[currentLang] || signalFeedbackCopy.en;
+    const state = selected === 0 ? 'zero' : selected === 1 ? 'one' : selected === 2 ? 'two' : 'many';
+    const copy = dict[state];
+    const count = document.getElementById('signal-feedback-count');
+    const title = document.getElementById('signal-feedback-title');
+    const text = document.getElementById('signal-feedback-copy');
+    const link = document.getElementById('signal-feedback-link');
+    const panel = document.querySelector('.symptom-card--feedback');
+    if (!count || !title || !text || !link) return;
+    count.textContent = copy[0].replace('{n}', String(selected));
+    title.textContent = copy[1];
+    text.textContent = copy[2];
+    link.textContent = copy[3];
+    panel?.classList.toggle('is-hot', selected >= 2);
+  }
+
+  function initSignalSelector() {
+    document.querySelectorAll('.symptom-card[data-symptom-card]').forEach(card => {
+      card.addEventListener('click', (event) => {
+        event.preventDefault();
+        const control = card.querySelector('.symptom-card__control[data-symptom]');
+        if (!control) return;
+        const active = control.getAttribute('aria-pressed') === 'true';
+        control.setAttribute('aria-pressed', String(!active));
+        updateSignalFeedback();
+      });
+    });
+    updateSignalFeedback();
   }
 
 
@@ -679,6 +728,7 @@
      ======================================== */
   function init() {
     initLanguageSwitch();
+    initSignalSelector();
     initHeroCanvas();
     initScrollProgress();
     initHeader();

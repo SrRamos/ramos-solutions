@@ -804,12 +804,56 @@ body.modal-open { overflow: hidden; }
     radial-gradient(circle at 20% 0%, rgba(239,68,68,0.12), transparent 42%);
   position: relative;
   overflow: hidden;
-  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+.symptom-card__control {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+.symptom-card__control::after {
+  content: '';
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.04);
+  box-shadow: inset 0 0 0 3px rgba(10,10,15,0.86);
+  transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
 .symptom-card:hover {
   transform: translateY(-4px);
   border-color: rgba(255,255,255,0.12);
   box-shadow: 0 18px 50px rgba(0,0,0,0.22), 0 0 40px rgba(99,102,241,0.08);
+}
+.symptom-card:has(.symptom-card__control:focus-visible) {
+  outline: 3px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+.symptom-card:has(.symptom-card__control[aria-pressed="true"]) {
+  border-color: rgba(34,211,238,0.45);
+  background:
+    linear-gradient(135deg, rgba(34,211,238,0.11), rgba(99,102,241,0.09)),
+    radial-gradient(circle at 20% 0%, rgba(52,211,153,0.16), transparent 44%);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.22), 0 0 0 1px rgba(34,211,238,0.12), 0 0 44px rgba(34,211,238,0.12);
+}
+.symptom-card__control[aria-pressed="true"]::after {
+  transform: scale(1.04);
+  border-color: rgba(34,211,238,0.85);
+  background: radial-gradient(circle, #22d3ee 0 42%, rgba(34,211,238,0.18) 48% 100%);
+  box-shadow: 0 0 20px rgba(34,211,238,0.32);
 }
 .symptom-card span {
   display: inline-flex;
@@ -820,18 +864,34 @@ body.modal-open { overflow: hidden; }
 }
 .symptom-card h3 { font-size: 1.15rem; line-height: 1.25; margin-bottom: 0.75rem; }
 .symptom-card p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65; }
-.symptom-card--cta {
+.symptom-card--feedback {
   background:
     linear-gradient(135deg, rgba(99,102,241,0.16), rgba(34,211,238,0.07)),
     rgba(255,255,255,0.03);
   border-color: rgba(34,211,238,0.18);
 }
-.symptom-card--cta span { color: var(--accent-cyan); font-size: 1.05rem; }
-.symptom-card--cta a {
+.symptom-card--feedback span { color: var(--accent-cyan); font-size: 1.05rem; }
+.symptom-card--feedback a {
   display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   margin-top: 1.1rem;
+  padding: 0.72rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34,211,238,0.28);
+  background: rgba(34,211,238,0.08);
   font-weight: 800;
   color: #e0f2fe;
+  text-decoration: none;
+}
+.symptom-card--feedback a::after { content: '→'; }
+.symptom-card--feedback a:hover {
+  border-color: rgba(34,211,238,0.58);
+  background: rgba(34,211,238,0.14);
+}
+.symptom-card--feedback.is-hot {
+  border-color: rgba(52,211,153,0.45);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.22), 0 0 54px rgba(52,211,153,0.12);
 }
 
 .transformation-panel {
