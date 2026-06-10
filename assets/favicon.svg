@@ -1,11 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#0a0a0f"/>
-  <rect x="10" y="10" width="80" height="80" rx="16" fill="url(#g)"/>
-  <text x="50" y="68" font-size="48" font-weight="800" font-family="system-ui,sans-serif" fill="#fff" text-anchor="middle">R</text>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="100" y2="100">
-      <stop offset="0" stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#a855f7"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#171513"/>
+  <path d="M10 8H56V43L43 56H10Z" fill="#f6f4ed"/>
+  <path d="M43 43H56L43 56Z" fill="#ff6b4a"/>
+  <text x="33" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="800" letter-spacing="-5" fill="#171513">RS</text>
 </svg>

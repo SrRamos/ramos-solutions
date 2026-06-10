@@ -85,67 +85,79 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 .header-inner { position: relative; display: flex; align-items: center; justify-content: space-between; height: 100%; }
 
-.logo { display: flex; align-items: center; gap: 0.72rem; font-weight: 850; font-size: 1.12rem; letter-spacing: -0.035em; }
-.logo-icon-wrap { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
+.logo { display: flex; align-items: center; gap: 0.76rem; font-weight: 850; font-size: 1.12rem; letter-spacing: -0.035em; }
+.logo-icon-wrap { position: relative; width: 60px; height: 60px; flex-shrink: 0; }
+.logo-icon-wrap--negative-cut {
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(246,244,237,0.07);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.34), inset 0 0 0 1px rgba(246,244,237,0.14);
+}
 .logo-icon-wrap::before {
   content: '';
   position: absolute;
   inset: 8px;
-  border-radius: 50%;
-  background: rgba(34,211,238,0.12);
+  border-radius: 16px;
+  background: rgba(255,107,74,0.12);
   filter: blur(18px);
-  opacity: 0.75;
+  opacity: 0.72;
 }
 .logo-svg { position: relative; width: 100%; height: 100%; overflow: visible; }
+.logo-svg--negative-cut { filter: drop-shadow(0 16px 32px rgba(0,0,0,0.48)); }
 
-/* Premium RS monogram */
-.logo-seal { stroke-dasharray: 240; stroke-dashoffset: 240; animation: logo-draw 1s var(--ease-soft) 0.05s forwards; }
-.logo-facet { stroke-dasharray: 190; stroke-dashoffset: 190; animation: logo-draw 0.9s var(--ease-soft) 0.25s forwards; }
-.logo-monogram {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 29px;
-  font-weight: 900;
-  letter-spacing: -0.145em;
+/* Premium negative-cut RS mark — Ramos Solutions */
+.logo-cut-bg {
+  fill: #fffaf0;
+  stroke: rgba(255,255,255,0.38);
+  stroke-width: 1;
+  transform-origin: center;
+}
+.logo-cut-facet {
+  fill: #ff6b4a;
+  transform-origin: 72px 72px;
+}
+.logo-cut-monogram {
+  fill: #171513;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: -7px;
+  dominant-baseline: alphabetic;
   opacity: 1;
   transform-box: fill-box;
   transform-origin: center;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.52));
-  paint-order: stroke fill;
-  stroke: rgba(10,10,15,0.42);
-  stroke-width: 1.2px;
-  animation: logo-mark-settle 0.5s var(--ease-soft) 0.26s both;
 }
-.logo-gem { transform: scale(0); transform-origin: center; animation: logo-gem-in 0.35s ease-out 0.86s forwards, logo-gem-breathe 4s ease-in-out 2s infinite; }
-
-@keyframes logo-draw { to { stroke-dashoffset: 0; } }
-@keyframes logo-mark-settle { from { transform: translateY(2px) scale(0.96); } to { transform: translateY(0) scale(1); } }
-@keyframes logo-gem-in { to { transform: scale(1); } }
-@keyframes logo-gem-breathe { 0%,100% { opacity: 0.95; transform: scale(1); } 50% { opacity: 0.58; transform: scale(0.78); } }
+@keyframes logo-cut-in { from { opacity: 0; transform: translateY(2px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes logo-facet-in { to { transform: scale(1); } }
+@keyframes logo-cut-type-in { to { opacity: 1; transform: translateY(0) scale(1); } }
 
 .logo-text { display: flex; gap: 0.28rem; align-items: baseline; text-shadow: 0 8px 26px rgba(0,0,0,0.35); }
 .logo-word { display: inline-block; opacity: 0; transform: translateY(5px); animation: logo-word-in 0.5s var(--ease-soft) forwards; }
 .logo-word:nth-child(1) { animation-delay: 0.14s; }
 .logo-word:nth-child(2) { animation-delay: 0.27s; }
-.logo-word--accent { background: linear-gradient(135deg, #f8fafc 0%, var(--accent-cyan) 45%, var(--accent-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.logo-word--accent { background: linear-gradient(135deg, #f8fafc 0%, var(--accent-warm) 48%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 @keyframes logo-word-in { to { opacity: 1; transform: translateY(0); } }
 
-.logo:hover .logo-svg { filter: url(#lg-glow); }
-.logo:hover .logo-gem { animation-duration: 2.2s; }
+.logo:hover .logo-svg--negative-cut { transform: translateY(-1px); filter: drop-shadow(0 18px 34px rgba(0,0,0,0.5)); }
+.logo:hover .logo-cut-facet { fill: #ff8a66; }
 
 @media (max-width: 767.98px) {
-  .logo-icon-wrap { width: 46px; height: 46px; }
-  .logo-seal, .logo-facet, .logo-gem { animation: logo-fade 0.45s ease-out forwards; stroke-dasharray: none; stroke-dashoffset: 0; opacity: 0; }
-  .logo-monogram { animation: none; opacity: 1; transform: none; font-size: 28px; }
-  .logo-seal { animation-delay: 0.03s; }
-  .logo-facet { animation-delay: 0.08s; }
-  .logo-gem { animation-delay: 0.25s; transform: scale(1); }
+  .logo-icon-wrap { width: 50px; height: 50px; }
+  .logo-icon-wrap--negative-cut { border-radius: 12px; }
+  .logo-cut-monogram { font-size: 29px; letter-spacing: -6.5px; }
+  .logo-cut-bg, .logo-cut-facet, .logo-cut-monogram { animation: none; opacity: 1; transform: none; }
   .logo-word { animation: logo-fade 0.35s ease-out forwards; }
+  .logo-cut-bg { animation-delay: 0.03s; }
+  .logo-cut-monogram { animation-delay: 0.09s; }
+  .logo-cut-facet { animation-delay: 0.16s; transform: scale(1); }
   .logo-word:nth-child(1) { animation-delay: 0.08s; }
   .logo-word:nth-child(2) { animation-delay: 0.16s; }
   @keyframes logo-fade { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
 }
 @media (prefers-reduced-motion: reduce) {
-  .logo-seal, .logo-facet, .logo-monogram, .logo-gem, .logo-word { animation: none !important; opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+  .logo-cut-bg, .logo-cut-facet, .logo-cut-monogram, .logo-word { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .logo:hover .logo-svg--negative-cut { transform: none; }
 }
 
 /* Mobile menu */
