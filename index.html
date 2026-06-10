@@ -23,7 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=4">
 
   <script type="application/ld+json">
   {
@@ -102,28 +103,11 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="#main" class="logo" aria-label="Ramos Solutions — Inicio">
-        <div class="logo-icon-wrap" aria-hidden="true">
-          <svg class="logo-svg" width="52" height="52" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <defs>
-              <linearGradient id="lg-grad" x1="6" y1="4" x2="66" y2="68" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#f8fafc"/>
-                <stop offset="34%" stop-color="#a855f7"/>
-                <stop offset="72%" stop-color="#6366f1"/>
-                <stop offset="100%" stop-color="#22d3ee"/>
-              </linearGradient>
-              <linearGradient id="lg-fill" x1="10" y1="8" x2="62" y2="66" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="rgba(255,255,255,0.11)"/>
-                <stop offset="100%" stop-color="rgba(99,102,241,0.03)"/>
-              </linearGradient>
-              <filter id="lg-glow" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur stdDeviation="2.2" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <path class="logo-seal" d="M36 4 L61 18.5 L61 53.5 L36 68 L11 53.5 L11 18.5 Z" fill="url(#lg-fill)" stroke="url(#lg-grad)" stroke-width="1.05"/>
-            <path class="logo-facet" d="M36 10 L54 21 L54 51 L36 62 L18 51 L18 21 Z" stroke="url(#lg-grad)" stroke-width="0.8" opacity="0.36"/>
-            <text class="logo-monogram" x="36" y="45" text-anchor="middle" fill="#f8fafc">RS</text>
-            <circle class="logo-gem" cx="57" cy="17" r="2.4" fill="#22d3ee"/>
+        <div class="logo-icon-wrap logo-icon-wrap--negative-cut" aria-hidden="true">
+          <svg class="logo-svg logo-svg--negative-cut" width="54" height="54" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <rect class="logo-cut-bg" x="0" y="0" width="72" height="72" rx="2"/>
+            <path class="logo-cut-facet" d="M51 51H72L51 72Z"/>
+            <text class="logo-cut-monogram" x="35.5" y="47.5" text-anchor="middle">RS</text>
           </svg>
         </div>
         <span class="logo-text" aria-hidden="true">
