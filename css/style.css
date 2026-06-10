@@ -87,50 +87,86 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 
 .logo { display: flex; align-items: center; gap: 0.76rem; font-weight: 850; font-size: 1.12rem; letter-spacing: -0.035em; }
 .logo-icon-wrap { position: relative; width: 60px; height: 60px; flex-shrink: 0; }
-.logo-icon-wrap--negative-cut {
+.logo-icon-wrap--hex-seal {
   display: grid;
   place-items: center;
-  border-radius: 16px;
-  background: rgba(246,244,237,0.07);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.34), inset 0 0 0 1px rgba(246,244,237,0.14);
+  border-radius: 999px;
+  background: radial-gradient(circle at 58% 22%, rgba(201,100,66,0.22), transparent 42%);
 }
 .logo-icon-wrap::before {
   content: '';
   position: absolute;
-  inset: 8px;
-  border-radius: 16px;
-  background: rgba(255,107,74,0.12);
-  filter: blur(18px);
-  opacity: 0.72;
+  inset: 9px;
+  border-radius: 999px;
+  background: rgba(201,100,66,0.18);
+  filter: blur(16px);
+  opacity: 0.64;
 }
 .logo-svg { position: relative; width: 100%; height: 100%; overflow: visible; }
-.logo-svg--negative-cut { filter: drop-shadow(0 16px 32px rgba(0,0,0,0.48)); }
+.logo-svg--hex-seal { filter: drop-shadow(0 16px 34px rgba(0,0,0,0.5)); transition: transform var(--transition-base), filter var(--transition-base); }
 
-/* Premium negative-cut RS mark — Ramos Solutions */
-.logo-cut-bg {
-  fill: #fffaf0;
-  stroke: rgba(255,255,255,0.38);
+/* Animated premium hex RS seal — Ramos Solutions */
+.logo-hex-aura {
+  fill: rgba(201,100,66,0.1);
+  transform-origin: 36px 36px;
+  animation: logo-aura-breathe 4.8s ease-in-out 1.2s infinite;
+}
+.logo-hex-shell {
+  fill: url(#logo-hex-fill);
+  stroke: url(#logo-hex-grad);
+  stroke-width: 1.85;
+  stroke-linejoin: round;
+  stroke-dasharray: 196;
+  stroke-dashoffset: 196;
+  animation: logo-draw 0.95s var(--ease-soft) 0.08s forwards;
+}
+.logo-hex-facet {
+  fill: rgba(255,248,236,0.035);
+  stroke: url(#logo-hex-grad);
   stroke-width: 1;
-  transform-origin: center;
+  stroke-linejoin: round;
+  opacity: 0;
+  stroke-dasharray: 142;
+  stroke-dashoffset: 142;
+  animation: logo-facet-draw 0.78s var(--ease-soft) 0.38s forwards;
 }
-.logo-cut-facet {
-  fill: #ff6b4a;
-  transform-origin: 72px 72px;
+.logo-hex-cut {
+  fill: #c96442;
+  opacity: 1;
+  transform: translateX(3px) scale(0.9);
+  transform-origin: 56px 27px;
+  animation: logo-cut-settle 0.46s var(--ease-soft) 0.82s forwards;
 }
-.logo-cut-monogram {
-  fill: #171513;
+.logo-hex-monogram {
+  fill: #fff8ec;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 31px;
+  font-size: 30px;
   font-weight: 800;
   letter-spacing: -7px;
   dominant-baseline: alphabetic;
+  paint-order: stroke fill;
+  stroke: rgba(23,21,19,0.58);
+  stroke-width: 1.45px;
   opacity: 1;
+  transform: translateY(3px) scale(0.96);
   transform-box: fill-box;
   transform-origin: center;
+  animation: logo-monogram-in 0.48s var(--ease-soft) 0.62s forwards;
 }
-@keyframes logo-cut-in { from { opacity: 0; transform: translateY(2px) scale(0.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes logo-facet-in { to { transform: scale(1); } }
-@keyframes logo-cut-type-in { to { opacity: 1; transform: translateY(0) scale(1); } }
+.logo-hex-node {
+  fill: #f2d5b0;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: logo-node-pop 0.36s ease-out 1s forwards, logo-node-breathe 3.2s ease-in-out 1.6s infinite;
+}
+@keyframes logo-draw { to { stroke-dashoffset: 0; } }
+@keyframes logo-facet-draw { to { opacity: 0.48; stroke-dashoffset: 0; } }
+@keyframes logo-cut-settle { to { transform: translateX(0) scale(1); } }
+@keyframes logo-monogram-in { to { transform: translateY(0) scale(1); } }
+@keyframes logo-node-pop { to { transform: scale(1); } }
+@keyframes logo-node-breathe { 0%,100% { opacity: 0.92; transform: scale(1); } 50% { opacity: 0.48; transform: scale(0.82); } }
+@keyframes logo-aura-breathe { 0%,100% { opacity: 0.52; transform: scale(0.98); } 50% { opacity: 0.86; transform: scale(1.04); } }
 
 .logo-text { display: flex; gap: 0.28rem; align-items: baseline; text-shadow: 0 8px 26px rgba(0,0,0,0.35); }
 .logo-word { display: inline-block; opacity: 0; transform: translateY(5px); animation: logo-word-in 0.5s var(--ease-soft) forwards; }
@@ -139,25 +175,38 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .logo-word--accent { background: linear-gradient(135deg, #f8fafc 0%, var(--accent-warm) 48%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 @keyframes logo-word-in { to { opacity: 1; transform: translateY(0); } }
 
-.logo:hover .logo-svg--negative-cut { transform: translateY(-1px); filter: drop-shadow(0 18px 34px rgba(0,0,0,0.5)); }
-.logo:hover .logo-cut-facet { fill: #ff8a66; }
+.logo:hover .logo-svg--hex-seal { transform: translateY(-1px); filter: drop-shadow(0 18px 36px rgba(0,0,0,0.52)); }
+.logo:hover .logo-hex-cut { fill: #de7651; }
 
 @media (max-width: 767.98px) {
   .logo-icon-wrap { width: 50px; height: 50px; }
-  .logo-icon-wrap--negative-cut { border-radius: 12px; }
-  .logo-cut-monogram { font-size: 29px; letter-spacing: -6.5px; }
-  .logo-cut-bg, .logo-cut-facet, .logo-cut-monogram { animation: none; opacity: 1; transform: none; }
+  .logo-icon-wrap--hex-seal { border-radius: 13px; }
+  .logo-hex-monogram { font-size: 29px; letter-spacing: -6.6px; }
+  .logo-hex-aura, .logo-hex-shell, .logo-hex-facet, .logo-hex-cut, .logo-hex-monogram, .logo-hex-node {
+    animation: logo-fade 0.36s ease-out forwards;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
+  .logo-hex-facet { opacity: 0.48; }
+  .logo-hex-cut, .logo-hex-monogram, .logo-hex-node { opacity: 1; }
+  .logo-hex-shell { animation-delay: 0.03s; }
+  .logo-hex-monogram { animation-delay: 0.08s; }
+  .logo-hex-cut, .logo-hex-node { animation-delay: 0.13s; }
   .logo-word { animation: logo-fade 0.35s ease-out forwards; }
-  .logo-cut-bg { animation-delay: 0.03s; }
-  .logo-cut-monogram { animation-delay: 0.09s; }
-  .logo-cut-facet { animation-delay: 0.16s; transform: scale(1); }
   .logo-word:nth-child(1) { animation-delay: 0.08s; }
   .logo-word:nth-child(2) { animation-delay: 0.16s; }
   @keyframes logo-fade { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
 }
 @media (prefers-reduced-motion: reduce) {
-  .logo-cut-bg, .logo-cut-facet, .logo-cut-monogram, .logo-word { animation: none !important; opacity: 1 !important; transform: none !important; }
-  .logo:hover .logo-svg--negative-cut { transform: none; }
+  .logo-hex-aura, .logo-hex-shell, .logo-hex-facet, .logo-hex-cut, .logo-hex-monogram, .logo-hex-node, .logo-word {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .logo-hex-facet { opacity: 0.48 !important; }
+  .logo:hover .logo-svg--hex-seal { transform: none; }
 }
 
 /* Mobile menu */

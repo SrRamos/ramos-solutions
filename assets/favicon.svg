@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#171513"/>
-  <path d="M10 8H56V43L43 56H10Z" fill="#f6f4ed"/>
-  <path d="M43 43H56L43 56Z" fill="#ff6b4a"/>
-  <text x="33" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="800" letter-spacing="-5" fill="#171513">RS</text>
+  <defs>
+    <linearGradient id="g" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff8ec"/>
+      <stop offset="0.42" stop-color="#c96442"/>
+      <stop offset="1" stop-color="#f2d5b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#171513"/>
+  <path d="M32 5 55 18.5v27L32 59 9 45.5v-27Z" fill="rgba(255,248,236,0.06)" stroke="url(#g)" stroke-width="2"/>
+  <path d="M32 12 49 22v20L32 52 15 42V22Z" fill="none" stroke="url(#g)" stroke-width="1" opacity="0.45"/>
+  <path d="M47 17.5 55 22v9l-8-4.5Z" fill="#c96442"/>
+  <text x="32" y="41" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" font-weight="800" letter-spacing="-5.8" fill="#fff8ec" stroke="#171513" stroke-width="1" paint-order="stroke fill">RS</text>
 </svg>
