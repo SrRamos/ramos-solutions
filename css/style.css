@@ -86,52 +86,52 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 .header-inner { position: relative; display: flex; align-items: center; justify-content: space-between; height: 100%; }
 
 .logo { display: flex; align-items: center; gap: 0.76rem; font-weight: 850; font-size: 1.12rem; letter-spacing: -0.035em; }
-.logo-icon-wrap { position: relative; width: 66px; height: 66px; flex-shrink: 0; }
+.logo-icon-wrap { position: relative; width: 58px; height: 58px; flex-shrink: 0; }
 .logo-icon-wrap--hex-seal {
   display: grid;
   place-items: center;
-  border-radius: 18px;
-  background: radial-gradient(circle at 58% 22%, rgba(210,106,71,0.24), transparent 45%);
+  border-radius: 16px;
+  background: transparent;
 }
 .logo-icon-wrap::before {
   content: '';
   position: absolute;
-  inset: 9px;
+  inset: 13px;
   border-radius: 999px;
-  background: rgba(210,106,71,0.2);
-  filter: blur(14px);
-  opacity: 0.72;
+  background: rgba(34,211,238,0.12);
+  filter: blur(16px);
+  opacity: 0.34;
 }
 .logo-svg { position: relative; width: 100%; height: 100%; overflow: visible; }
-.logo-svg--hex-seal { filter: drop-shadow(0 16px 34px rgba(0,0,0,0.5)); transition: transform var(--transition-base), filter var(--transition-base); }
+.logo-svg--hex-seal { filter: drop-shadow(0 12px 24px rgba(0,0,0,0.36)); transition: transform var(--transition-base), filter var(--transition-base); }
 
 /* Animated premium hex RS seal — Ramos Solutions */
 .logo-hex-aura {
-  fill: rgba(210,106,71,0.095);
+  fill: rgba(34,211,238,0.035);
   transform-origin: 36px 36px;
   animation: logo-aura-breathe 4.8s ease-in-out 1.2s infinite;
 }
 .logo-hex-shell {
   fill: url(#logo-hex-fill);
   stroke: url(#logo-hex-grad);
-  stroke-width: 2.35;
+  stroke-width: 1.7;
   stroke-linejoin: round;
   stroke-dasharray: none;
   stroke-dashoffset: 0;
   animation: logo-shell-settle 0.52s var(--ease-soft) 0.08s both;
 }
 .logo-hex-facet {
-  fill: rgba(255,248,236,0.035);
+  fill: rgba(248,250,252,0.018);
   stroke: url(#logo-hex-grad);
-  stroke-width: 1;
+  stroke-width: 0.82;
   stroke-linejoin: round;
-  opacity: 0;
+  opacity: 0.36;
   stroke-dasharray: 142;
   stroke-dashoffset: 142;
   animation: logo-facet-draw 0.78s var(--ease-soft) 0.38s forwards;
 }
 .logo-rs-rail {
-  stroke: rgba(255,247,232,0.34);
+  stroke: rgba(148,163,184,0.42);
   stroke-width: 1;
   stroke-linecap: round;
   stroke-dasharray: 56;
@@ -139,21 +139,21 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   animation: logo-rail-draw 0.72s var(--ease-soft) 0.5s forwards;
 }
 .logo-rs-axis {
-  fill: #d26a47;
+  fill: #22d3ee;
   opacity: 1;
   transform: translateX(2.5px) scale(0.92);
   transform-origin: 55px 25px;
   animation: logo-axis-settle 0.46s var(--ease-soft) 0.82s forwards;
 }
 .logo-hex-monogram {
-  fill: #fff7e8;
+  fill: #f8fafc;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
-  font-size: 34px;
+  font-size: 33px;
   font-weight: 900;
   letter-spacing: -8px;
   dominant-baseline: alphabetic;
   paint-order: stroke fill;
-  stroke: rgba(8,7,10,0.66);
+  stroke: rgba(8,11,18,0.78);
   stroke-width: 1.5px;
   opacity: 1;
   transform: translateY(2px) scale(0.98);
@@ -162,7 +162,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   animation: logo-monogram-in 0.48s var(--ease-soft) 0.62s forwards;
 }
 .logo-hex-node {
-  fill: #22d3ee;
+  fill: #f8fafc;
   transform: scale(0);
   transform-box: fill-box;
   transform-origin: center;
@@ -170,26 +170,26 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 @keyframes logo-draw { to { stroke-dashoffset: 0; } }
 @keyframes logo-shell-settle { from { opacity: 0.82; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
-@keyframes logo-facet-draw { to { opacity: 0.48; stroke-dashoffset: 0; } }
+@keyframes logo-facet-draw { to { opacity: 0.34; stroke-dashoffset: 0; } }
 @keyframes logo-rail-draw { to { stroke-dashoffset: 0; } }
 @keyframes logo-axis-settle { to { transform: translateX(0) scale(1); } }
 @keyframes logo-monogram-in { to { transform: translateY(0) scale(1); } }
 @keyframes logo-node-pop { to { transform: scale(1); } }
-@keyframes logo-node-breathe { 0%,100% { opacity: 0.92; transform: scale(1); } 50% { opacity: 0.48; transform: scale(0.82); } }
-@keyframes logo-aura-breathe { 0%,100% { opacity: 0.52; transform: scale(0.98); } 50% { opacity: 0.86; transform: scale(1.04); } }
+@keyframes logo-node-breathe { 0%,100% { opacity: 0.86; transform: scale(1); } 50% { opacity: 0.44; transform: scale(0.86); } }
+@keyframes logo-aura-breathe { 0%,100% { opacity: 0.28; transform: scale(0.98); } 50% { opacity: 0.52; transform: scale(1.03); } }
 
 .logo-text { display: flex; gap: 0.28rem; align-items: baseline; text-shadow: 0 8px 26px rgba(0,0,0,0.35); }
 .logo-word { display: inline-block; opacity: 0; transform: translateY(5px); animation: logo-word-in 0.5s var(--ease-soft) forwards; }
 .logo-word:nth-child(1) { animation-delay: 0.14s; }
 .logo-word:nth-child(2) { animation-delay: 0.27s; }
-.logo-word--accent { background: linear-gradient(135deg, #f8fafc 0%, var(--accent-warm) 48%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.logo-word--accent { background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 55%, var(--accent-cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 @keyframes logo-word-in { to { opacity: 1; transform: translateY(0); } }
 
 .logo:hover .logo-svg--hex-seal { transform: translateY(-1px); filter: drop-shadow(0 18px 36px rgba(0,0,0,0.52)); }
-.logo:hover .logo-rs-axis { fill: #e17852; }
+.logo:hover .logo-rs-axis { fill: #67e8f9; }
 
 @media (max-width: 767.98px) {
-  .logo-icon-wrap { width: 54px; height: 54px; }
+  .logo-icon-wrap { width: 50px; height: 50px; }
   .logo-icon-wrap--hex-seal { border-radius: 15px; }
   .logo-hex-monogram { font-size: 31px; letter-spacing: -7.3px; }
   .logo-hex-aura, .logo-hex-shell, .logo-hex-facet, .logo-rs-rail, .logo-rs-axis, .logo-hex-monogram, .logo-hex-node {
@@ -198,7 +198,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
     stroke-dashoffset: 0;
     transform: none;
   }
-  .logo-hex-facet { opacity: 0.48; }
+  .logo-hex-facet { opacity: 0.34; }
   .logo-rs-rail, .logo-rs-axis, .logo-hex-monogram, .logo-hex-node { opacity: 1; }
   .logo-hex-shell { animation-delay: 0.03s; }
   .logo-hex-monogram { animation-delay: 0.08s; }
@@ -215,7 +215,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
     transform: none !important;
     stroke-dashoffset: 0 !important;
   }
-  .logo-hex-facet { opacity: 0.48 !important; }
+  .logo-hex-facet { opacity: 0.34 !important; }
   .logo:hover .logo-svg--hex-seal { transform: none; }
 }
 
